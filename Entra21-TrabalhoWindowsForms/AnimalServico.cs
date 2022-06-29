@@ -43,6 +43,9 @@ namespace Entra21_TrabalhoWindowsForms
             animal.Doencas = animalParaEditar.Doencas;
             animal.Vacinas = animalParaEditar.Vacinas;
             animal.Alergias = animalParaEditar.Alergias;
+            animal.Sexo = animalParaEditar.Sexo;
+            animal.Especie = animalParaEditar.Especie;
+            animal.TipoRacao = animalParaEditar.TipoRacao;
 
             SalvarArquivo();
         }

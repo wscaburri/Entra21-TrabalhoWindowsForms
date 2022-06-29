@@ -19,6 +19,8 @@ namespace Entra21_TrabalhoWindowsForms
             public string Doencas;
             public bool Alergias;
             public string Porte;
-        
+            public string Sexo;
+            public string Especie;
+            public string TipoRacao;
     }
 }
