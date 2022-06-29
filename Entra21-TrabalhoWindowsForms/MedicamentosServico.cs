@@ -16,6 +16,24 @@
             //SalvarArquivo();
         }
 
+        public void Editar(Medicamentos medicamentoParaEditar)
+        {
+            for (var i = 0; i < medicamentos.Count; i++)
+            {
+                var medicamento = medicamentos[i];
+
+                if (medicamento.Codigo == medicamentoParaEditar.Codigo)
+                {
+                    medicamento.Nome = medicamentoParaEditar.Nome;
+                    medicamento.Tipo = medicamentoParaEditar.Tipo;
+
+                    //SalvarArquivo();
+
+                    return;
+                }
+            }
+        }
+
         public List<Medicamentos> ObterTodos()
         {
             return medicamentos;
