@@ -1,6 +1,6 @@
 ﻿namespace Entra21_TrabalhoWindowsForms
 {
-    partial class CadastroMedicamentos
+    partial class MedicamentosForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewMedicamentos = new System.Windows.Forms.DataGridView();
             this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelNomeMedicamento = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxNomeMedicamento = new System.Windows.Forms.TextBox();
             this.labelTipoMedicamento = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTipoMedicamento = new System.Windows.Forms.ComboBox();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedicamentos)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewMedicamentos
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewMedicamentos.AllowUserToAddRows = false;
+            this.dataGridViewMedicamentos.AllowUserToDeleteRows = false;
+            this.dataGridViewMedicamentos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewMedicamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnCodigo,
             this.ColumnNome,
             this.ColumnTipo});
-            this.dataGridView1.Location = new System.Drawing.Point(12, 30);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(432, 370);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewMedicamentos.Location = new System.Drawing.Point(12, 30);
+            this.dataGridViewMedicamentos.Name = "dataGridViewMedicamentos";
+            this.dataGridViewMedicamentos.ReadOnly = true;
+            this.dataGridViewMedicamentos.RowTemplate.Height = 25;
+            this.dataGridViewMedicamentos.Size = new System.Drawing.Size(432, 370);
+            this.dataGridViewMedicamentos.TabIndex = 0;
             // 
             // ColumnCodigo
             // 
@@ -87,12 +87,12 @@
             this.labelNomeMedicamento.TabIndex = 1;
             this.labelNomeMedicamento.Text = "Nome do Medicamento";
             // 
-            // textBox1
+            // textBoxNomeMedicamento
             // 
-            this.textBox1.Location = new System.Drawing.Point(479, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(332, 23);
-            this.textBox1.TabIndex = 2;
+            this.textBoxNomeMedicamento.Location = new System.Drawing.Point(479, 54);
+            this.textBoxNomeMedicamento.Name = "textBoxNomeMedicamento";
+            this.textBoxNomeMedicamento.Size = new System.Drawing.Size(332, 23);
+            this.textBoxNomeMedicamento.TabIndex = 2;
             // 
             // labelTipoMedicamento
             // 
@@ -104,13 +104,17 @@
             this.labelTipoMedicamento.TabIndex = 3;
             this.labelTipoMedicamento.Text = "Tipo do Medicamento";
             // 
-            // comboBox1
+            // comboBoxTipoMedicamento
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(479, 124);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(332, 23);
-            this.comboBox1.TabIndex = 4;
+            this.comboBoxTipoMedicamento.FormattingEnabled = true;
+            this.comboBoxTipoMedicamento.Items.AddRange(new object[] {
+            "Antidepressivo",
+            "Antibiotico",
+            "Vacina"});
+            this.comboBoxTipoMedicamento.Location = new System.Drawing.Point(479, 124);
+            this.comboBoxTipoMedicamento.Name = "comboBoxTipoMedicamento";
+            this.comboBoxTipoMedicamento.Size = new System.Drawing.Size(332, 23);
+            this.comboBoxTipoMedicamento.TabIndex = 4;
             // 
             // buttonEditar
             // 
@@ -120,6 +124,7 @@
             this.buttonEditar.TabIndex = 5;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // buttonApagar
             // 
@@ -138,6 +143,7 @@
             this.buttonCancelar.TabIndex = 7;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
+            this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
             // buttonSalvar
             // 
@@ -147,8 +153,9 @@
             this.buttonSalvar.TabIndex = 8;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
-            // CadastroMedicamentos
+            // MedicamentosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -157,14 +164,14 @@
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxTipoMedicamento);
             this.Controls.Add(this.labelTipoMedicamento);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxNomeMedicamento);
             this.Controls.Add(this.labelNomeMedicamento);
-            this.Controls.Add(this.dataGridView1);
-            this.Name = "CadastroMedicamentos";
+            this.Controls.Add(this.dataGridViewMedicamentos);
+            this.Name = "MedicamentosForm";
             this.Text = "CadastroMedicamentos";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedicamentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,14 +179,14 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewMedicamentos;
         private DataGridViewTextBoxColumn ColumnCodigo;
         private DataGridViewTextBoxColumn ColumnNome;
         private DataGridViewTextBoxColumn ColumnTipo;
         private Label labelNomeMedicamento;
-        private TextBox textBox1;
+        private TextBox textBoxNomeMedicamento;
         private Label labelTipoMedicamento;
-        private ComboBox comboBox1;
+        private ComboBox comboBoxTipoMedicamento;
         private Button buttonEditar;
         private Button buttonApagar;
         private Button buttonCancelar;

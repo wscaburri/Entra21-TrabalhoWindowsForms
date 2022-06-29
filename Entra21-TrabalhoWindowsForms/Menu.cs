@@ -14,7 +14,7 @@ namespace Entra21_TrabalhoWindowsForms
 
         private void buttonCadastroRemedios_Click(object sender, EventArgs e)
         {
-            var cadastroMedicamentosForm = new CadastroMedicamentos();
+            var cadastroMedicamentosForm = new MedicamentosForm();
             cadastroMedicamentosForm.ShowDialog();
         }
 
