@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entra21_TrabalhoWindowsForms
 {
-    internal class Responsavel
+    public class Responsavel
     {
         public int Codigo;
         public string NomeCompleto;
         public DateTime DataNascimento;
-        public double Cpf;
-        public string Rg;
+        public string Cpf;
         public double Cep;
         public string Endereco;
         public double NumeroResidencia;
@@ -21,7 +20,7 @@ namespace Entra21_TrabalhoWindowsForms
         public string Bairro;
         public string LocalDeTrabalho;
         public DateTime DataDeCadastro;
-        public string Telefone;
+        public double Telefone;
         public string Email;
 
     }
