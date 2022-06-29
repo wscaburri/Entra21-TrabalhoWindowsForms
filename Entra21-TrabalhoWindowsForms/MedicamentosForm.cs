@@ -11,6 +11,8 @@
             medicamentosServico = new MedicamentosServico();
 
             ListarMedicamentos();
+
+            PreencherDataGridViewComMedicamentos();
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -18,19 +20,15 @@
             var nome = textBoxNomeMedicamento.Text.Trim();
             var tipo = Convert.ToString(comboBoxTipoMedicamento.SelectedItem);
 
-            /*if (dataGridViewMedicamentos.ColumnCount == 0)
-            {
-                AdicionarMedicamento(nome, tipo);
+            //var dadosValidos = ValidarDados(nome, tipo);
 
-                return;
-            }*/
+            //if (dadosValidos == false)
+            //    return;
 
             if (dataGridViewMedicamentos.SelectedRows.Count == 0)
-                AdicionarMedicamento(nome, tipo);
-            //else
-            //EditarEndereco(nome, tipo);
-
-            CadastrarMedicamento(nome, tipo);
+                CadastrarMedicamento(nome, tipo);
+            else
+                //EditarMedicamento(nome, tipo);           
 
             PreencherDataGridViewComMedicamentos();
 
@@ -54,16 +52,7 @@
                     medicamento.Tipo,
                 });
             }
-        }
-
-        private void AdicionarMedicamento(string nome, string tipo)
-        {
-            var medicamento = new Medicamentos();
-
-            medicamento.Codigo = medicamentosServico.ObterUltimoCodigo() + 1;
-            medicamento.Nome = nome;
-            medicamento.Tipo = tipo;
-        }
+        }        
 
         public void LimparCampos()
         {
@@ -116,7 +105,7 @@
 
             if (resposta != DialogResult.Yes)
             {
-                MessageBox.Show("Operação cancelado. O medicamento continua salvo!");
+                MessageBox.Show("Operação cancelada. O medicamento continua salvo!");
 
                 return;
             }
@@ -151,6 +140,8 @@
                         medicamento.Tipo
                 });
             }
+
+            dataGridViewMedicamentos.ClearSelection();
         }
 
         private void CadastrarMedicamento(string nome, string tipo)
@@ -162,6 +153,26 @@
             medicamentos.Tipo = tipo;
 
             medicamentosServico.Adicionar(medicamentos);
+        }
+
+        public void EditarMedicamento(string nome, string tipo)
+        {
+            var linhaSelecionada = dataGridViewMedicamentos.SelectedRows[0];
+
+            var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+            var medicamento = new Medicamentos();
+
+            medicamento.Codigo = codigoSelecionado;
+            medicamento.Nome = nome;
+            medicamento.Tipo = tipo;
+
+            medicamentosServico.Editar(medicamento);
+        }
+
+        private void MedicamentosForm_Load(object sender, EventArgs e)
+        {
+            PreencherDataGridViewComMedicamentos();
         }
     }
 }

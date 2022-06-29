@@ -171,6 +171,7 @@
             this.Controls.Add(this.dataGridViewMedicamentos);
             this.Name = "MedicamentosForm";
             this.Text = "CadastroMedicamentos";
+            this.Load += new System.EventHandler(this.MedicamentosForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedicamentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
