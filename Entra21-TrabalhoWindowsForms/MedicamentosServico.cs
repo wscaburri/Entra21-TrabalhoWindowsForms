@@ -9,6 +9,13 @@
             medicamentos = new List<Medicamentos>();
         }
 
+        public void Adicionar(Medicamentos medicamento)
+        {
+            medicamentos.Add(medicamento);
+
+            //SalvarArquivo();
+        }
+
         public List<Medicamentos> ObterTodos()
         {
             return medicamentos;

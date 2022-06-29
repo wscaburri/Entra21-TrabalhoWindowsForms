@@ -30,6 +30,8 @@
             //else
             //EditarEndereco(nome, tipo);
 
+            CadastrarMedicamento(nome, tipo);
+
             PreencherDataGridViewComMedicamentos();
 
             LimparCampos();
@@ -149,6 +151,17 @@
                         medicamento.Tipo
                 });
             }
+        }
+
+        private void CadastrarMedicamento(string nome, string tipo)
+        {
+            var medicamentos = new Medicamentos();
+
+            medicamentos.Codigo = medicamentosServico.ObterUltimoCodigo() + 1;
+            medicamentos.Nome = nome;
+            medicamentos.Tipo = tipo;
+
+            medicamentosServico.Adicionar(medicamentos);
         }
     }
 }
