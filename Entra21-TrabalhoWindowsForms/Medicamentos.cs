@@ -5,5 +5,6 @@
         public int Codigo;
         public string Nome;
         public string Tipo;
+        public string Forma;
     }
 }

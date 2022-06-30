@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.dataGridViewMedicamentos = new System.Windows.Forms.DataGridView();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.labelNomeMedicamento = new System.Windows.Forms.Label();
             this.textBoxNomeMedicamento = new System.Windows.Forms.TextBox();
             this.labelTipoMedicamento = new System.Windows.Forms.Label();
@@ -40,6 +37,14 @@
             this.buttonApagar = new System.Windows.Forms.Button();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.buttonSalvar = new System.Windows.Forms.Button();
+            this.radioButtonComprimido = new System.Windows.Forms.RadioButton();
+            this.radioButtonLiquida = new System.Windows.Forms.RadioButton();
+            this.radioButtonVacina = new System.Windows.Forms.RadioButton();
+            this.labelFormaMedicamento = new System.Windows.Forms.Label();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedicamentos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -51,31 +56,14 @@
             this.dataGridViewMedicamentos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnCodigo,
             this.ColumnNome,
-            this.ColumnTipo});
+            this.ColumnTipo,
+            this.ColumnForma});
             this.dataGridViewMedicamentos.Location = new System.Drawing.Point(12, 30);
             this.dataGridViewMedicamentos.Name = "dataGridViewMedicamentos";
             this.dataGridViewMedicamentos.ReadOnly = true;
             this.dataGridViewMedicamentos.RowTemplate.Height = 25;
-            this.dataGridViewMedicamentos.Size = new System.Drawing.Size(432, 370);
+            this.dataGridViewMedicamentos.Size = new System.Drawing.Size(447, 370);
             this.dataGridViewMedicamentos.TabIndex = 0;
-            // 
-            // ColumnCodigo
-            // 
-            this.ColumnCodigo.HeaderText = "Código";
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.ReadOnly = true;
-            // 
-            // ColumnTipo
-            // 
-            this.ColumnTipo.HeaderText = "Tipo";
-            this.ColumnTipo.Name = "ColumnTipo";
-            this.ColumnTipo.ReadOnly = true;
             // 
             // labelNomeMedicamento
             // 
@@ -98,7 +86,7 @@
             // 
             this.labelTipoMedicamento.AutoSize = true;
             this.labelTipoMedicamento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelTipoMedicamento.Location = new System.Drawing.Point(479, 100);
+            this.labelTipoMedicamento.Location = new System.Drawing.Point(479, 91);
             this.labelTipoMedicamento.Name = "labelTipoMedicamento";
             this.labelTipoMedicamento.Size = new System.Drawing.Size(161, 21);
             this.labelTipoMedicamento.TabIndex = 3;
@@ -116,7 +104,7 @@
             "Antiséptico",
             "Descongestionante nasal",
             "Vacina"});
-            this.comboBoxTipoMedicamento.Location = new System.Drawing.Point(479, 124);
+            this.comboBoxTipoMedicamento.Location = new System.Drawing.Point(479, 115);
             this.comboBoxTipoMedicamento.Name = "comboBoxTipoMedicamento";
             this.comboBoxTipoMedicamento.Size = new System.Drawing.Size(332, 23);
             this.comboBoxTipoMedicamento.TabIndex = 4;
@@ -143,7 +131,7 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(655, 165);
+            this.buttonCancelar.Location = new System.Drawing.Point(655, 415);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 7;
@@ -153,7 +141,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(736, 165);
+            this.buttonSalvar.Location = new System.Drawing.Point(736, 415);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
             this.buttonSalvar.TabIndex = 8;
@@ -161,11 +149,82 @@
             this.buttonSalvar.UseVisualStyleBackColor = true;
             this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
+            // radioButtonComprimido
+            // 
+            this.radioButtonComprimido.AutoSize = true;
+            this.radioButtonComprimido.Location = new System.Drawing.Point(479, 175);
+            this.radioButtonComprimido.Name = "radioButtonComprimido";
+            this.radioButtonComprimido.Size = new System.Drawing.Size(93, 19);
+            this.radioButtonComprimido.TabIndex = 9;
+            this.radioButtonComprimido.TabStop = true;
+            this.radioButtonComprimido.Text = "Comprimido";
+            this.radioButtonComprimido.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonLiquida
+            // 
+            this.radioButtonLiquida.AutoSize = true;
+            this.radioButtonLiquida.Location = new System.Drawing.Point(578, 175);
+            this.radioButtonLiquida.Name = "radioButtonLiquida";
+            this.radioButtonLiquida.Size = new System.Drawing.Size(64, 19);
+            this.radioButtonLiquida.TabIndex = 10;
+            this.radioButtonLiquida.TabStop = true;
+            this.radioButtonLiquida.Text = "Líquida";
+            this.radioButtonLiquida.UseVisualStyleBackColor = true;
+            // 
+            // radioButtonVacina
+            // 
+            this.radioButtonVacina.AutoSize = true;
+            this.radioButtonVacina.Location = new System.Drawing.Point(648, 175);
+            this.radioButtonVacina.Name = "radioButtonVacina";
+            this.radioButtonVacina.Size = new System.Drawing.Size(59, 19);
+            this.radioButtonVacina.TabIndex = 11;
+            this.radioButtonVacina.TabStop = true;
+            this.radioButtonVacina.Text = "Vacina";
+            this.radioButtonVacina.UseVisualStyleBackColor = true;
+            // 
+            // labelFormaMedicamento
+            // 
+            this.labelFormaMedicamento.AutoSize = true;
+            this.labelFormaMedicamento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelFormaMedicamento.Location = new System.Drawing.Point(479, 151);
+            this.labelFormaMedicamento.Name = "labelFormaMedicamento";
+            this.labelFormaMedicamento.Size = new System.Drawing.Size(176, 21);
+            this.labelFormaMedicamento.TabIndex = 12;
+            this.labelFormaMedicamento.Text = "Forma do Medicamento";
+            // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Código";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnTipo
+            // 
+            this.ColumnTipo.HeaderText = "Tipo";
+            this.ColumnTipo.Name = "ColumnTipo";
+            this.ColumnTipo.ReadOnly = true;
+            // 
+            // ColumnForma
+            // 
+            this.ColumnForma.HeaderText = "Forma";
+            this.ColumnForma.Name = "ColumnForma";
+            this.ColumnForma.ReadOnly = true;
+            // 
             // MedicamentosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(849, 450);
+            this.ClientSize = new System.Drawing.Size(833, 450);
+            this.Controls.Add(this.labelFormaMedicamento);
+            this.Controls.Add(this.radioButtonVacina);
+            this.Controls.Add(this.radioButtonLiquida);
+            this.Controls.Add(this.radioButtonComprimido);
             this.Controls.Add(this.buttonSalvar);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.buttonApagar);
@@ -187,9 +246,6 @@
         #endregion
 
         private DataGridView dataGridViewMedicamentos;
-        private DataGridViewTextBoxColumn ColumnCodigo;
-        private DataGridViewTextBoxColumn ColumnNome;
-        private DataGridViewTextBoxColumn ColumnTipo;
         private Label labelNomeMedicamento;
         private TextBox textBoxNomeMedicamento;
         private Label labelTipoMedicamento;
@@ -198,5 +254,13 @@
         private Button buttonApagar;
         private Button buttonCancelar;
         private Button buttonSalvar;
+        private RadioButton radioButtonComprimido;
+        private RadioButton radioButtonLiquida;
+        private RadioButton radioButtonVacina;
+        private Label labelFormaMedicamento;
+        private DataGridViewTextBoxColumn ColumnCodigo;
+        private DataGridViewTextBoxColumn ColumnNome;
+        private DataGridViewTextBoxColumn ColumnTipo;
+        private DataGridViewTextBoxColumn ColumnForma;
     }
 }
