@@ -31,14 +31,11 @@
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.labelCadastro = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDataDeCadastro = new System.Windows.Forms.DateTimePicker();
             this.labelDono = new System.Windows.Forms.Label();
             this.labelNome = new System.Windows.Forms.Label();
-            this.textBoxRaca = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.labelEspecie = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -54,6 +51,10 @@
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.checkBoxVacinado = new System.Windows.Forms.CheckBox();
             this.buttonCancelar = new System.Windows.Forms.Button();
+            this.comboBoxEspecie = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.labelSexo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,20 +81,13 @@
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.pictureBox1.Image = global::Entra21_TrabalhoWindowsForms.Properties.Resources.B42E7514_543A_4DBA_B672_1418E7227D59;
-            this.pictureBox1.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(154, 91);
+            this.pictureBox1.Size = new System.Drawing.Size(168, 97);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(347, 27);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(384, 23);
-            this.maskedTextBox1.TabIndex = 4;
             // 
             // textBoxNome
             // 
@@ -105,24 +99,25 @@
             // labelCadastro
             // 
             this.labelCadastro.AutoSize = true;
-            this.labelCadastro.Location = new System.Drawing.Point(232, 9);
+            this.labelCadastro.Location = new System.Drawing.Point(515, 9);
             this.labelCadastro.Name = "labelCadastro";
             this.labelCadastro.Size = new System.Drawing.Size(97, 15);
             this.labelCadastro.TabIndex = 7;
             this.labelCadastro.Text = "Data de Cadastro";
             // 
-            // dateTimePicker1
+            // dateTimePickerDataDeCadastro
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(232, 27);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(97, 23);
-            this.dateTimePicker1.TabIndex = 8;
+            this.dateTimePickerDataDeCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDataDeCadastro.Location = new System.Drawing.Point(515, 27);
+            this.dateTimePickerDataDeCadastro.Name = "dateTimePickerDataDeCadastro";
+            this.dateTimePickerDataDeCadastro.Size = new System.Drawing.Size(113, 23);
+            this.dateTimePickerDataDeCadastro.TabIndex = 8;
+            this.dateTimePickerDataDeCadastro.ValueChanged += new System.EventHandler(this.dateTimePickerDataDeCadastro_ValueChanged);
             // 
             // labelDono
             // 
             this.labelDono.AutoSize = true;
-            this.labelDono.Location = new System.Drawing.Point(347, 9);
+            this.labelDono.Location = new System.Drawing.Point(232, 9);
             this.labelDono.Name = "labelDono";
             this.labelDono.Size = new System.Drawing.Size(160, 15);
             this.labelDono.TabIndex = 9;
@@ -136,20 +131,6 @@
             this.labelNome.Size = new System.Drawing.Size(40, 15);
             this.labelNome.TabIndex = 10;
             this.labelNome.Text = "Nome";
-            // 
-            // textBoxRaca
-            // 
-            this.textBoxRaca.Location = new System.Drawing.Point(229, 175);
-            this.textBoxRaca.Name = "textBoxRaca";
-            this.textBoxRaca.Size = new System.Drawing.Size(251, 23);
-            this.textBoxRaca.TabIndex = 13;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(229, 130);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(251, 23);
-            this.textBox3.TabIndex = 14;
             // 
             // labelEspecie
             // 
@@ -213,7 +194,7 @@
             // labelDataDeNascimento
             // 
             this.labelDataDeNascimento.AutoSize = true;
-            this.labelDataDeNascimento.Location = new System.Drawing.Point(617, 67);
+            this.labelDataDeNascimento.Location = new System.Drawing.Point(514, 67);
             this.labelDataDeNascimento.Name = "labelDataDeNascimento";
             this.labelDataDeNascimento.Size = new System.Drawing.Size(114, 15);
             this.labelDataDeNascimento.TabIndex = 25;
@@ -222,7 +203,7 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(618, 85);
+            this.dateTimePicker2.Location = new System.Drawing.Point(514, 85);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(113, 23);
             this.dateTimePicker2.TabIndex = 27;
@@ -246,7 +227,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(502, 85);
+            this.radioButton1.Location = new System.Drawing.Point(505, 156);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(60, 19);
             this.radioButton1.TabIndex = 30;
@@ -257,7 +238,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(502, 112);
+            this.radioButton2.Location = new System.Drawing.Point(505, 181);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(62, 19);
             this.radioButton2.TabIndex = 31;
@@ -269,7 +250,7 @@
             // checkBoxVacinado
             // 
             this.checkBoxVacinado.AutoSize = true;
-            this.checkBoxVacinado.Location = new System.Drawing.Point(502, 322);
+            this.checkBoxVacinado.Location = new System.Drawing.Point(303, 373);
             this.checkBoxVacinado.Name = "checkBoxVacinado";
             this.checkBoxVacinado.Size = new System.Drawing.Size(74, 19);
             this.checkBoxVacinado.TabIndex = 32;
@@ -286,12 +267,50 @@
             this.buttonCancelar.UseVisualStyleBackColor = true;
             this.buttonCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
             // 
+            // comboBoxEspecie
+            // 
+            this.comboBoxEspecie.FormattingEnabled = true;
+            this.comboBoxEspecie.Location = new System.Drawing.Point(232, 130);
+            this.comboBoxEspecie.Name = "comboBoxEspecie";
+            this.comboBoxEspecie.Size = new System.Drawing.Size(248, 23);
+            this.comboBoxEspecie.TabIndex = 34;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(232, 174);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(248, 23);
+            this.comboBox1.TabIndex = 35;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(229, 27);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(251, 23);
+            this.comboBox2.TabIndex = 36;
+            // 
+            // labelSexo
+            // 
+            this.labelSexo.AutoSize = true;
+            this.labelSexo.Location = new System.Drawing.Point(505, 130);
+            this.labelSexo.Name = "labelSexo";
+            this.labelSexo.Size = new System.Drawing.Size(38, 15);
+            this.labelSexo.TabIndex = 37;
+            this.labelSexo.Text = "label1";
+            this.labelSexo.Click += new System.EventHandler(this.label11_Click);
+            // 
             // CadastroPets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelSexo);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxEspecie);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.checkBoxVacinado);
             this.Controls.Add(this.radioButton2);
@@ -307,14 +326,11 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.labelEspecie);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBoxRaca);
             this.Controls.Add(this.labelNome);
             this.Controls.Add(this.labelDono);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.dateTimePickerDataDeCadastro);
             this.Controls.Add(this.labelCadastro);
             this.Controls.Add(this.textBoxNome);
-            this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonSalvar);
@@ -333,14 +349,11 @@
         private Button buttonSalvar;
         private Button buttonEditar;
         private PictureBox pictureBox1;
-        private MaskedTextBox maskedTextBox1;
         private TextBox textBoxNome;
         private Label labelCadastro;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dateTimePickerDataDeCadastro;
         private Label labelDono;
         private Label labelNome;
-        private TextBox textBoxRaca;
-        private TextBox textBox3;
         private Label labelEspecie;
         private Label label5;
         private Label label6;
@@ -356,5 +369,9 @@
         private RadioButton radioButton2;
         private CheckBox checkBoxVacinado;
         private Button buttonCancelar;
+        private ComboBox comboBoxEspecie;
+        private ComboBox comboBox1;
+        private ComboBox comboBox2;
+        private Label labelSexo;
     }
 }

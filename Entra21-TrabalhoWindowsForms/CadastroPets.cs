@@ -56,5 +56,10 @@ namespace Entra21_TrabalhoWindowsForms
         {
 
         }
+
+        private void dateTimePickerDataDeCadastro_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
