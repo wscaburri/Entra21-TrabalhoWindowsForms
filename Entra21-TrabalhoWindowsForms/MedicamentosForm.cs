@@ -10,7 +10,7 @@
 
             medicamentosServico = new MedicamentosServico();
 
-            ListarMedicamentos();
+            //ListarMedicamentos();
 
             PreencherDataGridViewComMedicamentos();
         }
@@ -28,7 +28,7 @@
             if (dataGridViewMedicamentos.SelectedRows.Count == 0)
                 CadastrarMedicamento(nome, tipo);
             else
-                //EditarMedicamento(nome, tipo);           
+                EditarMedicamento(nome, tipo);
 
             PreencherDataGridViewComMedicamentos();
 
@@ -52,7 +52,7 @@
                     medicamento.Tipo,
                 });
             }
-        }        
+        }
 
         public void LimparCampos()
         {

@@ -43,7 +43,7 @@
         {
             var ultimoCodigo = 0;
 
-            for (var i = 0; i < ultimoCodigo; i++)
+            for (var i = 0; i < medicamentos.Count; i++)
             {
                 var medicamento = medicamentos[i];
 
