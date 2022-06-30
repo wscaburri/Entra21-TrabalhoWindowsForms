@@ -58,6 +58,7 @@ namespace Entra21_TrabalhoWindowsForms
         {
             var responsavel = ObterPorCodigo(responsavelParaEditar.Codigo);
 
+            responsavel.Tipo = responsavelParaEditar.Tipo;
             responsavel.NomeCompleto = responsavelParaEditar.NomeCompleto;
             responsavel.DataNascimento = responsavelParaEditar.DataNascimento;
             responsavel.Cpf = responsavelParaEditar.Cpf;
@@ -70,6 +71,7 @@ namespace Entra21_TrabalhoWindowsForms
             responsavel.LocalDeTrabalho = responsavelParaEditar.LocalDeTrabalho;
             responsavel.DataDeCadastro = responsavelParaEditar.DataDeCadastro;
             responsavel.Telefone = responsavelParaEditar.Telefone;
+            responsavel.Celular = responsavelParaEditar.Celular;
             responsavel.Email = responsavelParaEditar.Email;
 
             SalvarArquivo();

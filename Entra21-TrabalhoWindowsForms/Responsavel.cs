@@ -9,6 +9,7 @@ namespace Entra21_TrabalhoWindowsForms
     public class Responsavel
     {
         public int Codigo;
+        public string Tipo;
         public string NomeCompleto;
         public DateTime DataNascimento;
         public string Cpf;
@@ -21,6 +22,7 @@ namespace Entra21_TrabalhoWindowsForms
         public string LocalDeTrabalho;
         public DateTime DataDeCadastro;
         public double Telefone;
+        public double Celular;
         public string Email;
 
     }
