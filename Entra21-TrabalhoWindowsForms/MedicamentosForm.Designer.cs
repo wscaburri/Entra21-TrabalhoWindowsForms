@@ -108,8 +108,13 @@
             // 
             this.comboBoxTipoMedicamento.FormattingEnabled = true;
             this.comboBoxTipoMedicamento.Items.AddRange(new object[] {
+            "Analgésico",
+            "Antibiótico",
             "Antidepressivo",
-            "Antibiotico",
+            "Antigripal",
+            "Antiinflamatório",
+            "Antiséptico",
+            "Descongestionante nasal",
             "Vacina"});
             this.comboBoxTipoMedicamento.Location = new System.Drawing.Point(479, 124);
             this.comboBoxTipoMedicamento.Name = "comboBoxTipoMedicamento";
