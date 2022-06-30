@@ -1,4 +1,6 @@
-﻿namespace Entra21_TrabalhoWindowsForms
+﻿using Newtonsoft.Json;
+
+namespace Entra21_TrabalhoWindowsForms
 {
     internal class MedicamentosServico
     {
@@ -13,7 +15,7 @@
         {
             medicamentos.Add(medicamento);
 
-            //SalvarArquivo();
+            SalvarArquivo();
         }
 
         public void Editar(Medicamentos medicamentoParaEditar)
@@ -76,11 +78,27 @@
                 {
                     medicamentos.Remove(medicamento);
 
-                    //SalvarArquivo();
+                    SalvarArquivo();
 
                     return;
                 }
             }
+        }
+
+        private void LerArquivo()
+        {
+            if (File.Exists("medicamentos.json") == false)
+                return;
+
+            var medicamentosJson = File.ReadAllText("medicamentos.json");
+
+            medicamentos = JsonConvert.DeserializeObject<List<Medicamentos>>(medicamentosJson);
+        }
+
+        private void SalvarArquivo()
+        {
+            var medicamentosJson = JsonConvert.SerializeObject(medicamentos);
+            File.WriteAllText("medicamentos.json", medicamentosJson);
         }
     }
 }

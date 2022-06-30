@@ -6,5 +6,7 @@
         public string Nome;
         public string Tipo;
         public string Forma;
+        public DateTime DataCadastro;
+
     }
 }

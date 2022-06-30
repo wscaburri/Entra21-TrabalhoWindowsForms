@@ -8,9 +8,7 @@
         {
             InitializeComponent();
 
-            medicamentosServico = new MedicamentosServico();
-
-            //ListarMedicamentos();
+            medicamentosServico = new MedicamentosServico();           
 
             PreencherDataGridViewComMedicamentos();
         }
@@ -33,26 +31,7 @@
             PreencherDataGridViewComMedicamentos();
 
             LimparCampos();
-        }
-
-        private void ListarMedicamentos()
-        {
-            var medicamentos = medicamentosServico.ObterTodos();
-
-            dataGridViewMedicamentos.ClearSelection();
-
-            for (var i = 0; i < medicamentos.Count; i++)
-            {
-                var medicamento = medicamentos[i];
-
-                dataGridViewMedicamentos.Rows.Add(new object[]
-                {
-                    medicamento.Codigo,
-                    medicamento.Nome,
-                    medicamento.Tipo,
-                });
-            }
-        }
+        }       
 
         public void LimparCampos()
         {
