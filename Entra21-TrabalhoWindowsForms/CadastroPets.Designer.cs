@@ -28,34 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroPets));
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBoxNome = new System.Windows.Forms.TextBox();
             this.labelCadastro = new System.Windows.Forms.Label();
             this.dateTimePickerDataDeCadastro = new System.Windows.Forms.DateTimePicker();
-            this.labelDono = new System.Windows.Forms.Label();
             this.labelNome = new System.Windows.Forms.Label();
             this.labelEspecie = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.textBoxCor = new System.Windows.Forms.TextBox();
+            this.labelRaca = new System.Windows.Forms.Label();
+            this.labelPelagem = new System.Windows.Forms.Label();
+            this.textBoxPelagem = new System.Windows.Forms.TextBox();
             this.textBoxPeso = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.labelDoencas = new System.Windows.Forms.Label();
+            this.labelPeso = new System.Windows.Forms.Label();
             this.labelDataDeNascimento = new System.Windows.Forms.Label();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerDataDeNascimento = new System.Windows.Forms.DateTimePicker();
             this.textBoxDoencas = new System.Windows.Forms.TextBox();
             this.buttonApagar = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButtonFemea = new System.Windows.Forms.RadioButton();
+            this.radioButtonMacho = new System.Windows.Forms.RadioButton();
             this.checkBoxVacinado = new System.Windows.Forms.CheckBox();
             this.buttonCancelar = new System.Windows.Forms.Button();
             this.comboBoxEspecie = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxRaca = new System.Windows.Forms.ComboBox();
             this.labelSexo = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.richTextBoxObservacoes = new System.Windows.Forms.RichTextBox();
+            this.labelObservacoes = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // buttonSalvar
@@ -77,33 +76,22 @@
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pictureBox1.Image = global::Entra21_TrabalhoWindowsForms.Properties.Resources.B42E7514_543A_4DBA_B672_1418E7227D59;
-            this.pictureBox1.Location = new System.Drawing.Point(0, -1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(168, 97);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
-            // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(229, 85);
+            this.textBoxNome.Location = new System.Drawing.Point(222, 30);
             this.textBoxNome.Name = "textBoxNome";
-            this.textBoxNome.Size = new System.Drawing.Size(251, 23);
+            this.textBoxNome.Size = new System.Drawing.Size(270, 23);
             this.textBoxNome.TabIndex = 5;
             // 
             // labelCadastro
             // 
             this.labelCadastro.AutoSize = true;
+            this.labelCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.labelCadastro.Location = new System.Drawing.Point(515, 9);
             this.labelCadastro.Name = "labelCadastro";
-            this.labelCadastro.Size = new System.Drawing.Size(97, 15);
+            this.labelCadastro.Size = new System.Drawing.Size(100, 15);
             this.labelCadastro.TabIndex = 7;
-            this.labelCadastro.Text = "Data de Cadastro";
+            this.labelCadastro.Text = "Data de Cadastro:";
             // 
             // dateTimePickerDataDeCadastro
             // 
@@ -114,105 +102,103 @@
             this.dateTimePickerDataDeCadastro.TabIndex = 8;
             this.dateTimePickerDataDeCadastro.ValueChanged += new System.EventHandler(this.dateTimePickerDataDeCadastro_ValueChanged);
             // 
-            // labelDono
-            // 
-            this.labelDono.AutoSize = true;
-            this.labelDono.Location = new System.Drawing.Point(232, 9);
-            this.labelDono.Name = "labelDono";
-            this.labelDono.Size = new System.Drawing.Size(160, 15);
-            this.labelDono.TabIndex = 9;
-            this.labelDono.Text = "Dono / Cliente / Responsável";
-            // 
             // labelNome
             // 
             this.labelNome.AutoSize = true;
-            this.labelNome.Location = new System.Drawing.Point(229, 67);
+            this.labelNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelNome.Location = new System.Drawing.Point(222, 12);
             this.labelNome.Name = "labelNome";
-            this.labelNome.Size = new System.Drawing.Size(40, 15);
+            this.labelNome.Size = new System.Drawing.Size(95, 15);
             this.labelNome.TabIndex = 10;
-            this.labelNome.Text = "Nome";
+            this.labelNome.Text = "Nome / Apelido:";
             // 
             // labelEspecie
             // 
             this.labelEspecie.AutoSize = true;
-            this.labelEspecie.Location = new System.Drawing.Point(229, 112);
+            this.labelEspecie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelEspecie.Location = new System.Drawing.Point(222, 67);
             this.labelEspecie.Name = "labelEspecie";
-            this.labelEspecie.Size = new System.Drawing.Size(46, 15);
+            this.labelEspecie.Size = new System.Drawing.Size(49, 15);
             this.labelEspecie.TabIndex = 15;
-            this.labelEspecie.Text = "Espécie";
+            this.labelEspecie.Text = "Espécie:";
             // 
-            // label5
+            // labelRaca
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(229, 156);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 15);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Raça";
+            this.labelRaca.AutoSize = true;
+            this.labelRaca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelRaca.Location = new System.Drawing.Point(338, 133);
+            this.labelRaca.Name = "labelRaca";
+            this.labelRaca.Size = new System.Drawing.Size(35, 15);
+            this.labelRaca.TabIndex = 16;
+            this.labelRaca.Text = "Raça:";
             // 
-            // label6
+            // labelPelagem
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(229, 201);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 15);
-            this.label6.TabIndex = 17;
-            this.label6.Text = "Cor / Pelagem";
+            this.labelPelagem.AutoSize = true;
+            this.labelPelagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelPelagem.Location = new System.Drawing.Point(384, 67);
+            this.labelPelagem.Name = "labelPelagem";
+            this.labelPelagem.Size = new System.Drawing.Size(86, 15);
+            this.labelPelagem.TabIndex = 17;
+            this.labelPelagem.Text = "Cor / Pelagem:";
             // 
-            // textBoxCor
+            // textBoxPelagem
             // 
-            this.textBoxCor.Location = new System.Drawing.Point(229, 219);
-            this.textBoxCor.Name = "textBoxCor";
-            this.textBoxCor.Size = new System.Drawing.Size(251, 23);
-            this.textBoxCor.TabIndex = 18;
+            this.textBoxPelagem.Location = new System.Drawing.Point(360, 88);
+            this.textBoxPelagem.Name = "textBoxPelagem";
+            this.textBoxPelagem.Size = new System.Drawing.Size(132, 23);
+            this.textBoxPelagem.TabIndex = 18;
             // 
             // textBoxPeso
             // 
-            this.textBoxPeso.Location = new System.Drawing.Point(229, 274);
+            this.textBoxPeso.Location = new System.Drawing.Point(222, 215);
             this.textBoxPeso.Name = "textBoxPeso";
-            this.textBoxPeso.Size = new System.Drawing.Size(251, 23);
+            this.textBoxPeso.Size = new System.Drawing.Size(270, 23);
             this.textBoxPeso.TabIndex = 19;
             // 
-            // label7
+            // labelDoencas
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(229, 300);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 15);
-            this.label7.TabIndex = 20;
-            this.label7.Text = "Doenças";
+            this.labelDoencas.AutoSize = true;
+            this.labelDoencas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelDoencas.Location = new System.Drawing.Point(222, 256);
+            this.labelDoencas.Name = "labelDoencas";
+            this.labelDoencas.Size = new System.Drawing.Size(55, 15);
+            this.labelDoencas.TabIndex = 20;
+            this.labelDoencas.Text = "Doenças:";
             // 
-            // label10
+            // labelPeso
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(229, 256);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(32, 15);
-            this.label10.TabIndex = 23;
-            this.label10.Text = "Peso";
+            this.labelPeso.AutoSize = true;
+            this.labelPeso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelPeso.Location = new System.Drawing.Point(338, 194);
+            this.labelPeso.Name = "labelPeso";
+            this.labelPeso.Size = new System.Drawing.Size(35, 15);
+            this.labelPeso.TabIndex = 23;
+            this.labelPeso.Text = "Peso:";
             // 
             // labelDataDeNascimento
             // 
             this.labelDataDeNascimento.AutoSize = true;
+            this.labelDataDeNascimento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.labelDataDeNascimento.Location = new System.Drawing.Point(514, 67);
             this.labelDataDeNascimento.Name = "labelDataDeNascimento";
-            this.labelDataDeNascimento.Size = new System.Drawing.Size(114, 15);
+            this.labelDataDeNascimento.Size = new System.Drawing.Size(117, 15);
             this.labelDataDeNascimento.TabIndex = 25;
-            this.labelDataDeNascimento.Text = "Data de Nascimento";
+            this.labelDataDeNascimento.Text = "Data de Nascimento:";
             // 
-            // dateTimePicker2
+            // dateTimePickerDataDeNascimento
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(514, 85);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(113, 23);
-            this.dateTimePicker2.TabIndex = 27;
+            this.dateTimePickerDataDeNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDataDeNascimento.Location = new System.Drawing.Point(514, 85);
+            this.dateTimePickerDataDeNascimento.Name = "dateTimePickerDataDeNascimento";
+            this.dateTimePickerDataDeNascimento.Size = new System.Drawing.Size(113, 23);
+            this.dateTimePickerDataDeNascimento.TabIndex = 27;
             // 
             // textBoxDoencas
             // 
-            this.textBoxDoencas.Location = new System.Drawing.Point(229, 318);
+            this.textBoxDoencas.Location = new System.Drawing.Point(222, 274);
             this.textBoxDoencas.Name = "textBoxDoencas";
-            this.textBoxDoencas.Size = new System.Drawing.Size(255, 23);
+            this.textBoxDoencas.Size = new System.Drawing.Size(270, 23);
             this.textBoxDoencas.TabIndex = 28;
             // 
             // buttonApagar
@@ -224,38 +210,41 @@
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // radioButtonFemea
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(505, 156);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(60, 19);
-            this.radioButton1.TabIndex = 30;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Fêmea";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButtonFemea.AutoSize = true;
+            this.radioButtonFemea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.radioButtonFemea.Location = new System.Drawing.Point(505, 156);
+            this.radioButtonFemea.Name = "radioButtonFemea";
+            this.radioButtonFemea.Size = new System.Drawing.Size(63, 19);
+            this.radioButtonFemea.TabIndex = 30;
+            this.radioButtonFemea.TabStop = true;
+            this.radioButtonFemea.Text = "Fêmea.";
+            this.radioButtonFemea.UseVisualStyleBackColor = false;
             // 
-            // radioButton2
+            // radioButtonMacho
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(505, 181);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(62, 19);
-            this.radioButton2.TabIndex = 31;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Macho";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            this.radioButtonMacho.AutoSize = true;
+            this.radioButtonMacho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.radioButtonMacho.Location = new System.Drawing.Point(505, 181);
+            this.radioButtonMacho.Name = "radioButtonMacho";
+            this.radioButtonMacho.Size = new System.Drawing.Size(65, 19);
+            this.radioButtonMacho.TabIndex = 31;
+            this.radioButtonMacho.TabStop = true;
+            this.radioButtonMacho.Text = "Macho.";
+            this.radioButtonMacho.UseVisualStyleBackColor = false;
+            this.radioButtonMacho.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // checkBoxVacinado
             // 
             this.checkBoxVacinado.AutoSize = true;
-            this.checkBoxVacinado.Location = new System.Drawing.Point(303, 373);
+            this.checkBoxVacinado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.checkBoxVacinado.Location = new System.Drawing.Point(505, 219);
             this.checkBoxVacinado.Name = "checkBoxVacinado";
-            this.checkBoxVacinado.Size = new System.Drawing.Size(74, 19);
+            this.checkBoxVacinado.Size = new System.Drawing.Size(77, 19);
             this.checkBoxVacinado.TabIndex = 32;
-            this.checkBoxVacinado.Text = "Vacinado";
-            this.checkBoxVacinado.UseVisualStyleBackColor = true;
+            this.checkBoxVacinado.Text = "Vacinado.";
+            this.checkBoxVacinado.UseVisualStyleBackColor = false;
             // 
             // buttonCancelar
             // 
@@ -270,75 +259,86 @@
             // comboBoxEspecie
             // 
             this.comboBoxEspecie.FormattingEnabled = true;
-            this.comboBoxEspecie.Location = new System.Drawing.Point(232, 130);
+            this.comboBoxEspecie.Location = new System.Drawing.Point(222, 88);
             this.comboBoxEspecie.Name = "comboBoxEspecie";
-            this.comboBoxEspecie.Size = new System.Drawing.Size(248, 23);
+            this.comboBoxEspecie.Size = new System.Drawing.Size(132, 23);
             this.comboBoxEspecie.TabIndex = 34;
             // 
-            // comboBox1
+            // comboBoxRaca
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(232, 174);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(248, 23);
-            this.comboBox1.TabIndex = 35;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(229, 27);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(251, 23);
-            this.comboBox2.TabIndex = 36;
+            this.comboBoxRaca.FormattingEnabled = true;
+            this.comboBoxRaca.Location = new System.Drawing.Point(222, 156);
+            this.comboBoxRaca.Name = "comboBoxRaca";
+            this.comboBoxRaca.Size = new System.Drawing.Size(270, 23);
+            this.comboBoxRaca.TabIndex = 35;
             // 
             // labelSexo
             // 
             this.labelSexo.AutoSize = true;
-            this.labelSexo.Location = new System.Drawing.Point(505, 130);
+            this.labelSexo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelSexo.Location = new System.Drawing.Point(515, 133);
             this.labelSexo.Name = "labelSexo";
-            this.labelSexo.Size = new System.Drawing.Size(38, 15);
+            this.labelSexo.Size = new System.Drawing.Size(35, 15);
             this.labelSexo.TabIndex = 37;
-            this.labelSexo.Text = "label1";
+            this.labelSexo.Text = "Sexo:";
             this.labelSexo.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // richTextBoxObservacoes
+            // 
+            this.richTextBoxObservacoes.Location = new System.Drawing.Point(505, 274);
+            this.richTextBoxObservacoes.Name = "richTextBoxObservacoes";
+            this.richTextBoxObservacoes.Size = new System.Drawing.Size(283, 67);
+            this.richTextBoxObservacoes.TabIndex = 38;
+            this.richTextBoxObservacoes.Text = "";
+            // 
+            // labelObservacoes
+            // 
+            this.labelObservacoes.AutoSize = true;
+            this.labelObservacoes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.labelObservacoes.Location = new System.Drawing.Point(606, 256);
+            this.labelObservacoes.Name = "labelObservacoes";
+            this.labelObservacoes.Size = new System.Drawing.Size(77, 15);
+            this.labelObservacoes.TabIndex = 39;
+            this.labelObservacoes.Text = "Observações:";
             // 
             // CadastroPets
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.labelObservacoes);
+            this.Controls.Add(this.richTextBoxObservacoes);
             this.Controls.Add(this.labelSexo);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxRaca);
             this.Controls.Add(this.comboBoxEspecie);
             this.Controls.Add(this.buttonCancelar);
             this.Controls.Add(this.checkBoxVacinado);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.radioButtonMacho);
+            this.Controls.Add(this.radioButtonFemea);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.textBoxDoencas);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePickerDataDeNascimento);
             this.Controls.Add(this.labelDataDeNascimento);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label7);
+            this.Controls.Add(this.labelPeso);
+            this.Controls.Add(this.labelDoencas);
             this.Controls.Add(this.textBoxPeso);
-            this.Controls.Add(this.textBoxCor);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxPelagem);
+            this.Controls.Add(this.labelPelagem);
+            this.Controls.Add(this.labelRaca);
             this.Controls.Add(this.labelEspecie);
             this.Controls.Add(this.labelNome);
-            this.Controls.Add(this.labelDono);
             this.Controls.Add(this.dateTimePickerDataDeCadastro);
             this.Controls.Add(this.labelCadastro);
             this.Controls.Add(this.textBoxNome);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonSalvar);
             this.Name = "CadastroPets";
-            this.Opacity = 0.2D;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Pets";
             this.Load += new System.EventHandler(this.CadastroPets_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,30 +348,29 @@
 
         private Button buttonSalvar;
         private Button buttonEditar;
-        private PictureBox pictureBox1;
         private TextBox textBoxNome;
         private Label labelCadastro;
         private DateTimePicker dateTimePickerDataDeCadastro;
-        private Label labelDono;
         private Label labelNome;
         private Label labelEspecie;
-        private Label label5;
-        private Label label6;
-        private TextBox textBoxCor;
+        private Label labelRaca;
+        private Label labelPelagem;
+        private TextBox textBoxPelagem;
         private TextBox textBoxPeso;
-        private Label label7;
-        private Label label10;
+        private Label labelDoencas;
+        private Label labelPeso;
         private Label labelDataDeNascimento;
-        private DateTimePicker dateTimePicker2;
+        private DateTimePicker dateTimePickerDataDeNascimento;
         private TextBox textBoxDoencas;
         private Button buttonApagar;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
+        private RadioButton radioButtonFemea;
+        private RadioButton radioButtonMacho;
         private CheckBox checkBoxVacinado;
         private Button buttonCancelar;
         private ComboBox comboBoxEspecie;
-        private ComboBox comboBox1;
-        private ComboBox comboBox2;
+        private ComboBox comboBoxRaca;
         private Label labelSexo;
+        private RichTextBox richTextBoxObservacoes;
+        private Label labelObservacoes;
     }
 }
