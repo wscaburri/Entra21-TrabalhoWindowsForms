@@ -172,7 +172,7 @@
                 return false;
             }
 
-            f(comboBoxVeterinario.SelectedIndex == -1)
+            if (comboBoxVeterinario.SelectedIndex == -1)
             {
                 MessageBox.Show("Selecione o Veterinário.");
 
