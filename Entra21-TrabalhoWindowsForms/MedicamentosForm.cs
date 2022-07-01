@@ -132,7 +132,7 @@
 
         public void LimparCampos()
         {
-            textBoxNomeMedicamento.Text = "";
+            textBoxNomeMedicamento.Text = string.Empty;
             comboBoxTipoMedicamento.SelectedIndex = -1;
             radioButtonComprimido.Checked = false;
             radioButtonLiquida.Checked = false;

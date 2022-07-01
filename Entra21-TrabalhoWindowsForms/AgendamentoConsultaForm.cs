@@ -112,8 +112,8 @@
             agendamentos.DataConsulta = dataConsulta;
             agendamentos.HoraConsulta = horaConsulta;
             agendamentos.NomeResponsavel = responsavelServico.ObterPorNomeResponsavel(nomeResponsavel);
-            agendamentos.NomePet = AnimalServico.ObterPorNomeAnimal(nomePet);
-            agendamentos.NomeVeterinario = 
+            agendamentos.NomePet = animalServico.ObterPorNomeAnimal(nomePet);
+            agendamentos.NomeVeterinario = veterinarioServico.ObterPorNomeVeterinario(nomeVeterinario);
 
             agendamentoConsultaServico.Adicionar(agendamentos);
         }
@@ -129,9 +129,9 @@
             agendamento.Codigo = codigoSelecionado;
             agendamento.DataConsulta = dataConsulta;
             agendamento.HoraConsulta = horaConsulta;
-            agendamento.NomeResponsavel = nomeResponsavel;
-            agendamento.NomePet = nomePet;
-            agendamento.NomeVeterinario = nomeVeterinario;
+            agendamento.NomeResponsavel = responsavelServico.ObterPorNomeResponsavel(nomeResponsavel);
+            agendamento.NomePet = animalServico.ObterPorNomeAnimal(nomePet);
+            agendamento.NomeVeterinario = veterinarioServico.ObterPorNomeVeterinario(nomeVeterinario);
 
             agendamentoConsultaServico.Editar(agendamento);
         }
@@ -182,6 +182,79 @@
             }
 
             return true;
+        }
+
+        public void LimparCampos()
+        {
+            dateTimePickerDataConsulta.ResetText();
+            dateTimePickerHoraConsulta.ResetText();
+            comboBoxResponsavel.SelectedIndex = -1;
+            comboBoxPet.SelectedIndex = -1;
+            comboBoxVeterinario.SelectedIndex = -1;
+        }
+
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            ApresentarDadosParaEditar();
+        }
+
+        private void ApresentarDadosParaEditar()
+        {
+            if (dataGridViewAgendamentoConsulta.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um Agendamento para editar!");
+
+                return;
+            }
+
+            var linhaSelecionada = dataGridViewAgendamentoConsulta.SelectedRows[0];
+
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+            var agendamento = agendamentoConsultaServico.ObterPorCodigo(codigo);
+
+            dateTimePickerDataConsulta.Text = Convert.ToString(agendamento.DataConsulta);
+            dateTimePickerHoraConsulta.Text = Convert.ToString(agendamento.HoraConsulta);
+            comboBoxResponsavel.SelectedItem = agendamento.NomeResponsavel;
+            comboBoxPet.SelectedItem = agendamento.NomePet;
+            comboBoxVeterinario.SelectedItem = agendamento.NomeVeterinario;
+        }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+            if (dataGridViewAgendamentoConsulta.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione o agendamento de consulta para excluir!");
+
+                return;
+            }
+
+            var resposta = MessageBox.Show("Deseja realmente desmarcar a consulta?", "AVISO",
+                MessageBoxButtons.YesNo);
+
+            if (resposta != DialogResult.Yes)
+            {
+                MessageBox.Show("Operação cancelada. A consulta foi desmarcada!");
+
+                return;
+            }
+
+            var linhaSelecionada = dataGridViewAgendamentoConsulta.SelectedRows[0];
+
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+            var agendamento = agendamentoConsultaServico.ObterPorCodigo(codigo);
+
+            agendamentoConsultaServico.Apagar(agendamento);
+
+            PreencherDataGridViewComAgendamentos();
+
+            dataGridViewAgendamentoConsulta.ClearSelection();
         }
     }
 }

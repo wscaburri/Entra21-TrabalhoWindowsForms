@@ -108,11 +108,11 @@ namespace Entra21_TrabalhoWindowsForms
         {
             for (var i = 0; i < veterinarios.Count; i++)
             {
-                var veretinario = veterinarios[i];
+                var veterinario = veterinarios[i];
 
-                if (veterinarios. == nome)
+                if (veterinario.Nome == nome)
                 {
-                    return veretinario;
+                    return veterinario;
                 }
             }
             return null;
