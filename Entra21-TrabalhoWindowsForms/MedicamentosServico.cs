@@ -29,6 +29,7 @@ namespace Entra21_TrabalhoWindowsForms
                     medicamento.Nome = medicamentoParaEditar.Nome;
                     medicamento.Tipo = medicamentoParaEditar.Tipo;
                     medicamento.Forma = medicamentoParaEditar.Forma;
+                    medicamento.Recomendacao = medicamentoParaEditar.Recomendacao;
 
                     SalvarArquivo();
 
