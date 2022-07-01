@@ -14,8 +14,7 @@ namespace Entra21_TrabalhoWindowsForms
     {
         private ResponsavelServico responsavelServico;
         private AnimalServico animalServico;
-        private Validacoes validacoes;
-        private EditarResponsavelForm editarResponsavel;
+        private Responsavel ObjetoResponsavel;
 
         public ResponsavelForm()
         {
@@ -36,7 +35,7 @@ namespace Entra21_TrabalhoWindowsForms
         {
             maskedTextBoxCep.Text = "";
             maskedTextBoxCpf.Text = "";
-            maskedTextBoxRg.Text = "";
+           
             
         }
 
@@ -50,7 +49,6 @@ namespace Entra21_TrabalhoWindowsForms
             var tipo = Convert.ToString(comboBoxTipo.SelectedItem);
             var nomeCompleto = textBoxNomeCompleto.Text;
             var cpf = maskedTextBoxCpf.Text;
-            var rg = maskedTextBoxRg.Text;
             var dataNascimento = Convert.ToString(dateTimePickerDataCadastro.Text);
             var cep = maskedTextBoxCep.Text;
             var cidade = Convert.ToString(comboBoxCidade.SelectedItem);
@@ -68,16 +66,46 @@ namespace Entra21_TrabalhoWindowsForms
             
             
             
-            var dadosValidos = validacoes.ValidarCpf(cpf);
+            var dadosValidos = ObjetoResponsavel.ValidarCpf(cpf);
             if (dadosValidos == false)
             {
                 return;
             }
 
-            
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+
+            }
 
             
 
+        }
+        private void PreecherDataGridViewComResponsaveis()
+        {
+            var resposanveis = responsavelServico.ObterTodos();
+
+            dataGridView1.Rows.Clear();
+
+            for (int i = 0; i < resposanveis.Count; i++)
+            {
+                var responsavel = resposanveis[i];
+
+                dataGridView1.Rows.Add(new object[]
+                {
+                    responsavel.Codigo,
+                    responsavel.Tipo,
+                    responsavel.NomeCompleto,
+                    responsavel.Cpf,
+                    responsavel.DataNascimento,
+                    responsavel.Cep,
+                    responsavel.Cidade,
+                    responsavel.Bairro,
+                    responsavel
+
+
+                });
+
+            }
         }
     }
 }

@@ -39,8 +39,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.maskedTextBoxCpf = new System.Windows.Forms.MaskedTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.labelRg = new System.Windows.Forms.Label();
-            this.maskedTextBoxRg = new System.Windows.Forms.MaskedTextBox();
             this.dateTimePickerDataNascimento = new System.Windows.Forms.DateTimePicker();
             this.labelDataNascimento = new System.Windows.Forms.Label();
             this.labelCep = new System.Windows.Forms.Label();
@@ -165,7 +163,7 @@
             this.maskedTextBoxCpf.Location = new System.Drawing.Point(674, 83);
             this.maskedTextBoxCpf.Mask = "999.999.999-99";
             this.maskedTextBoxCpf.Name = "maskedTextBoxCpf";
-            this.maskedTextBoxCpf.Size = new System.Drawing.Size(143, 29);
+            this.maskedTextBoxCpf.Size = new System.Drawing.Size(304, 29);
             this.maskedTextBoxCpf.TabIndex = 10;
             // 
             // label3
@@ -176,24 +174,6 @@
             this.label3.Size = new System.Drawing.Size(28, 15);
             this.label3.TabIndex = 11;
             this.label3.Text = "CPF";
-            // 
-            // labelRg
-            // 
-            this.labelRg.AutoSize = true;
-            this.labelRg.Location = new System.Drawing.Point(838, 65);
-            this.labelRg.Name = "labelRg";
-            this.labelRg.Size = new System.Drawing.Size(22, 15);
-            this.labelRg.TabIndex = 12;
-            this.labelRg.Text = "RG";
-            // 
-            // maskedTextBoxRg
-            // 
-            this.maskedTextBoxRg.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxRg.Location = new System.Drawing.Point(833, 82);
-            this.maskedTextBoxRg.Mask = "9.999.999";
-            this.maskedTextBoxRg.Name = "maskedTextBoxRg";
-            this.maskedTextBoxRg.Size = new System.Drawing.Size(145, 29);
-            this.maskedTextBoxRg.TabIndex = 13;
             // 
             // dateTimePickerDataNascimento
             // 
@@ -235,6 +215,9 @@
             // 
             this.comboBoxCidade.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxCidade.FormattingEnabled = true;
+            this.comboBoxCidade.Items.AddRange(new object[] {
+            "Cachorro",
+            "Gato"});
             this.comboBoxCidade.Location = new System.Drawing.Point(419, 152);
             this.comboBoxCidade.Name = "comboBoxCidade";
             this.comboBoxCidade.Size = new System.Drawing.Size(237, 29);
@@ -483,8 +466,6 @@
             this.Controls.Add(this.labelCep);
             this.Controls.Add(this.labelDataNascimento);
             this.Controls.Add(this.dateTimePickerDataNascimento);
-            this.Controls.Add(this.maskedTextBoxRg);
-            this.Controls.Add(this.labelRg);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.maskedTextBoxCpf);
             this.Controls.Add(this.label2);
@@ -516,8 +497,6 @@
         private Label label2;
         private MaskedTextBox maskedTextBoxCpf;
         private Label label3;
-        private Label labelRg;
-        private MaskedTextBox maskedTextBoxRg;
         private DateTimePicker dateTimePickerDataNascimento;
         private Label labelDataNascimento;
         private Label labelCep;
