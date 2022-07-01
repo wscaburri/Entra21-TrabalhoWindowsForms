@@ -103,5 +103,19 @@ namespace Entra21_TrabalhoWindowsForms
             var veterinariosJson = JsonConvert.SerializeObject(veterinarios);
             File.WriteAllText("veterinarios.json", veterinariosJson);
         }
+
+        public Veterinario ObterPorNomeVeterinario(string nome)
+        {
+            for (var i = 0; i < veterinarios.Count; i++)
+            {
+                var veretinario = veterinarios[i];
+
+                if (veterinarios. == nome)
+                {
+                    return veretinario;
+                }
+            }
+            return null;
+        }
     }
 }

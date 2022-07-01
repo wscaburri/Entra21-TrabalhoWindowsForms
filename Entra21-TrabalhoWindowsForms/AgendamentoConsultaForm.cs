@@ -111,9 +111,9 @@
             agendamentos.Codigo = agendamentoConsultaServico.ObterUltimoCodigo() + 1;
             agendamentos.DataConsulta = dataConsulta;
             agendamentos.HoraConsulta = horaConsulta;
-            agendamentos.NomeResponsavel = nomeResponsavel;
-            agendamentos.NomePet = nomePet;
-            agendamentos.NomeVeterinario = nomeVeterinario;
+            agendamentos.NomeResponsavel = responsavelServico.ObterPorNomeResponsavel(nomeResponsavel);
+            agendamentos.NomePet = AnimalServico.ObterPorNomeAnimal(nomePet);
+            agendamentos.NomeVeterinario = 
 
             agendamentoConsultaServico.Adicionar(agendamentos);
         }
