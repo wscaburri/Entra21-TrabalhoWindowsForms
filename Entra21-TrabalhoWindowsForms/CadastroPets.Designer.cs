@@ -55,6 +55,8 @@
             this.labelSexo = new System.Windows.Forms.Label();
             this.richTextBoxObservacoes = new System.Windows.Forms.RichTextBox();
             this.labelObservacoes = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSalvar
@@ -75,6 +77,7 @@
             this.buttonEditar.TabIndex = 2;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
+            this.buttonEditar.Click += new System.EventHandler(this.buttonEditar_Click);
             // 
             // textBoxNome
             // 
@@ -285,21 +288,30 @@
             // 
             // richTextBoxObservacoes
             // 
-            this.richTextBoxObservacoes.Location = new System.Drawing.Point(505, 274);
+            this.richTextBoxObservacoes.Location = new System.Drawing.Point(568, 274);
             this.richTextBoxObservacoes.Name = "richTextBoxObservacoes";
             this.richTextBoxObservacoes.Size = new System.Drawing.Size(283, 67);
             this.richTextBoxObservacoes.TabIndex = 38;
             this.richTextBoxObservacoes.Text = "";
+            this.richTextBoxObservacoes.TextChanged += new System.EventHandler(this.richTextBoxObservacoes_TextChanged);
             // 
             // labelObservacoes
             // 
             this.labelObservacoes.AutoSize = true;
             this.labelObservacoes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelObservacoes.Location = new System.Drawing.Point(606, 256);
+            this.labelObservacoes.Location = new System.Drawing.Point(680, 256);
             this.labelObservacoes.Name = "labelObservacoes";
             this.labelObservacoes.Size = new System.Drawing.Size(77, 15);
             this.labelObservacoes.TabIndex = 39;
             this.labelObservacoes.Text = "Observações:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(637, 12);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 40;
             // 
             // CadastroPets
             // 
@@ -308,7 +320,8 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(878, 450);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelObservacoes);
             this.Controls.Add(this.richTextBoxObservacoes);
             this.Controls.Add(this.labelSexo);
@@ -339,6 +352,7 @@
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Pets";
             this.Load += new System.EventHandler(this.CadastroPets_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -372,5 +386,6 @@
         private Label labelSexo;
         private RichTextBox richTextBoxObservacoes;
         private Label labelObservacoes;
+        private DataGridView dataGridView1;
     }
 }
