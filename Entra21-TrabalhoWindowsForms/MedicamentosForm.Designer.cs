@@ -41,10 +41,18 @@
             this.radioButtonLiquida = new System.Windows.Forms.RadioButton();
             this.radioButtonVacina = new System.Windows.Forms.RadioButton();
             this.labelFormaMedicamento = new System.Windows.Forms.Label();
+            this.dateTimePickerDataCadastro = new System.Windows.Forms.DateTimePicker();
+            this.labelDataCadastro = new System.Windows.Forms.Label();
+            this.checkBoxCaes = new System.Windows.Forms.CheckBox();
+            this.checkBoxGatos = new System.Windows.Forms.CheckBox();
+            this.labelRecomendacao = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnForma = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRecomendacao = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMedicamentos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,7 +65,8 @@
             this.ColumnCodigo,
             this.ColumnNome,
             this.ColumnTipo,
-            this.ColumnForma});
+            this.ColumnForma,
+            this.ColumnRecomendacao});
             this.dataGridViewMedicamentos.Location = new System.Drawing.Point(12, 30);
             this.dataGridViewMedicamentos.Name = "dataGridViewMedicamentos";
             this.dataGridViewMedicamentos.ReadOnly = true;
@@ -192,6 +201,72 @@
             this.labelFormaMedicamento.TabIndex = 12;
             this.labelFormaMedicamento.Text = "Forma do Medicamento";
             // 
+            // dateTimePickerDataCadastro
+            // 
+            this.dateTimePickerDataCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePickerDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePickerDataCadastro.Location = new System.Drawing.Point(479, 346);
+            this.dateTimePickerDataCadastro.Name = "dateTimePickerDataCadastro";
+            this.dateTimePickerDataCadastro.Size = new System.Drawing.Size(200, 29);
+            this.dateTimePickerDataCadastro.TabIndex = 13;
+            // 
+            // labelDataCadastro
+            // 
+            this.labelDataCadastro.AutoSize = true;
+            this.labelDataCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelDataCadastro.Location = new System.Drawing.Point(479, 322);
+            this.labelDataCadastro.Name = "labelDataCadastro";
+            this.labelDataCadastro.Size = new System.Drawing.Size(129, 21);
+            this.labelDataCadastro.TabIndex = 14;
+            this.labelDataCadastro.Text = "Data de Cadastro";
+            // 
+            // checkBoxCaes
+            // 
+            this.checkBoxCaes.AutoSize = true;
+            this.checkBoxCaes.Location = new System.Drawing.Point(480, 225);
+            this.checkBoxCaes.Name = "checkBoxCaes";
+            this.checkBoxCaes.Size = new System.Drawing.Size(51, 19);
+            this.checkBoxCaes.TabIndex = 15;
+            this.checkBoxCaes.Text = "Cães";
+            this.checkBoxCaes.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxGatos
+            // 
+            this.checkBoxGatos.AutoSize = true;
+            this.checkBoxGatos.Location = new System.Drawing.Point(537, 225);
+            this.checkBoxGatos.Name = "checkBoxGatos";
+            this.checkBoxGatos.Size = new System.Drawing.Size(56, 19);
+            this.checkBoxGatos.TabIndex = 16;
+            this.checkBoxGatos.Text = "Gatos";
+            this.checkBoxGatos.UseVisualStyleBackColor = true;
+            // 
+            // labelRecomendacao
+            // 
+            this.labelRecomendacao.AutoSize = true;
+            this.labelRecomendacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelRecomendacao.Location = new System.Drawing.Point(479, 201);
+            this.labelRecomendacao.Name = "labelRecomendacao";
+            this.labelRecomendacao.Size = new System.Drawing.Size(116, 21);
+            this.labelRecomendacao.TabIndex = 17;
+            this.labelRecomendacao.Text = "Recomendação";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(479, 284);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.maskedTextBox1.TabIndex = 18;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(479, 260);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(52, 21);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "label1";
+            // 
             // ColumnCodigo
             // 
             this.ColumnCodigo.HeaderText = "Código";
@@ -216,11 +291,24 @@
             this.ColumnForma.Name = "ColumnForma";
             this.ColumnForma.ReadOnly = true;
             // 
+            // ColumnRecomendacao
+            // 
+            this.ColumnRecomendacao.HeaderText = "Recomendado";
+            this.ColumnRecomendacao.Name = "ColumnRecomendacao";
+            this.ColumnRecomendacao.ReadOnly = true;
+            // 
             // MedicamentosForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(833, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.maskedTextBox1);
+            this.Controls.Add(this.labelRecomendacao);
+            this.Controls.Add(this.checkBoxGatos);
+            this.Controls.Add(this.checkBoxCaes);
+            this.Controls.Add(this.labelDataCadastro);
+            this.Controls.Add(this.dateTimePickerDataCadastro);
             this.Controls.Add(this.labelFormaMedicamento);
             this.Controls.Add(this.radioButtonVacina);
             this.Controls.Add(this.radioButtonLiquida);
@@ -258,9 +346,17 @@
         private RadioButton radioButtonLiquida;
         private RadioButton radioButtonVacina;
         private Label labelFormaMedicamento;
+        private DateTimePicker dateTimePickerDataCadastro;
+        private Label labelDataCadastro;
+        private CheckBox checkBoxCaes;
+        private CheckBox checkBoxGatos;
+        private Label labelRecomendacao;
+        private MaskedTextBox maskedTextBox1;
+        private Label label1;
         private DataGridViewTextBoxColumn ColumnCodigo;
         private DataGridViewTextBoxColumn ColumnNome;
         private DataGridViewTextBoxColumn ColumnTipo;
         private DataGridViewTextBoxColumn ColumnForma;
+        private DataGridViewTextBoxColumn ColumnRecomendacao;
     }
 }

@@ -8,7 +8,7 @@
         {
             InitializeComponent();
 
-            medicamentosServico = new MedicamentosServico();           
+            medicamentosServico = new MedicamentosServico();
 
             PreencherDataGridViewComMedicamentos();
         }
@@ -17,6 +17,9 @@
         {
             var nome = textBoxNomeMedicamento.Text.Trim();
             var tipo = Convert.ToString(comboBoxTipoMedicamento.SelectedItem);
+            var forma = Convert.ToString(SelecionarFormaMedicamento());
+            var recomendacao = Convert.ToString(VerificarRecomendacaoSelecionada());
+
 
             //var dadosValidos = ValidarDados(nome, tipo);
 
@@ -24,19 +27,25 @@
             //    return;
 
             if (dataGridViewMedicamentos.SelectedRows.Count == 0)
-                CadastrarMedicamento(nome, tipo);
+                CadastrarMedicamento(nome, tipo, forma, recomendacao);
             else
-                EditarMedicamento(nome, tipo);
+                EditarMedicamento(nome, tipo, forma, recomendacao);
 
             PreencherDataGridViewComMedicamentos();
 
             LimparCampos();
-        }       
+        }
 
         public void LimparCampos()
         {
             textBoxNomeMedicamento.Text = "";
             comboBoxTipoMedicamento.SelectedIndex = -1;
+            radioButtonComprimido.Checked = false;
+            radioButtonLiquida.Checked = false;
+            radioButtonVacina.Checked = false;
+            checkBoxCaes.Checked = false;
+            checkBoxGatos.Checked = false;
+
 
             dataGridViewMedicamentos.ClearSelection();
         }
@@ -63,6 +72,8 @@
 
             textBoxNomeMedicamento.Text = nome.Nome;
             comboBoxTipoMedicamento.SelectedItem = nome.Tipo;
+
+
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
@@ -116,25 +127,30 @@
                 {
                         medicamento.Codigo,
                         medicamento.Nome,
-                        medicamento.Tipo
+                        medicamento.Tipo,
+                        medicamento.Forma,
+                        medicamento.Recomendacao
+                        
                 });
             }
 
             dataGridViewMedicamentos.ClearSelection();
         }
 
-        private void CadastrarMedicamento(string nome, string tipo)
+        private void CadastrarMedicamento(string nome, string tipo, string forma, string recomendacao)
         {
             var medicamentos = new Medicamentos();
 
             medicamentos.Codigo = medicamentosServico.ObterUltimoCodigo() + 1;
             medicamentos.Nome = nome;
             medicamentos.Tipo = tipo;
+            medicamentos.Forma = forma;
+            medicamentos.Recomendacao = recomendacao;
 
             medicamentosServico.Adicionar(medicamentos);
         }
 
-        public void EditarMedicamento(string nome, string tipo)
+        public void EditarMedicamento(string nome, string tipo, string forma, string recomendacao)
         {
             var linhaSelecionada = dataGridViewMedicamentos.SelectedRows[0];
 
@@ -145,8 +161,40 @@
             medicamento.Codigo = codigoSelecionado;
             medicamento.Nome = nome;
             medicamento.Tipo = tipo;
+            medicamento.Forma = forma;
+            medicamento.Recomendacao = recomendacao;
 
             medicamentosServico.Editar(medicamento);
+        }
+
+        private string SelecionarFormaMedicamento()
+        {
+            var formaComprimido = "";
+
+            if (radioButtonComprimido.Checked == true)
+                formaComprimido = "Comprimido";
+
+            if (radioButtonLiquida.Checked == true)
+                formaComprimido = "Liquida";
+
+            if (radioButtonVacina.Checked == true)
+                formaComprimido = "Vacina";
+
+            return formaComprimido;
+        }
+
+        private string VerificarRecomendacaoSelecionada()
+        {
+            var recomendacao = "";
+
+            if (checkBoxCaes.Checked == true && checkBoxGatos.Checked == true)
+                recomendacao = "Cães e Gatos";
+            else if (checkBoxCaes.Checked == true && checkBoxGatos.Checked == false)
+                recomendacao = "Cães";
+            else if (checkBoxCaes.Checked == false && checkBoxGatos.Checked == true)
+                recomendacao = "Gatos";
+
+            return recomendacao;
         }
 
         private void MedicamentosForm_Load(object sender, EventArgs e)

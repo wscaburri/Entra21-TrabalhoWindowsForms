@@ -28,8 +28,9 @@ namespace Entra21_TrabalhoWindowsForms
                 {
                     medicamento.Nome = medicamentoParaEditar.Nome;
                     medicamento.Tipo = medicamentoParaEditar.Tipo;
+                    medicamento.Forma = medicamentoParaEditar.Forma;
 
-                    //SalvarArquivo();
+                    SalvarArquivo();
 
                     return;
                 }
@@ -83,7 +84,7 @@ namespace Entra21_TrabalhoWindowsForms
                     return;
                 }
             }
-        }
+        }    
 
         private void LerArquivo()
         {
