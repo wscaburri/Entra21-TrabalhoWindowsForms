@@ -21,6 +21,5 @@ namespace Entra21_TrabalhoWindowsForms
             public string Porte;
             public string Sexo;
             public string Especie;
-            public string TipoRacao;
     }
 }

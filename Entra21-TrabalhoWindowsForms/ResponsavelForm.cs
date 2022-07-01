@@ -100,7 +100,6 @@ namespace Entra21_TrabalhoWindowsForms
                     responsavel.Cep,
                     responsavel.Cidade,
                     responsavel.Bairro,
-                    responsavel
 
 
                 });
