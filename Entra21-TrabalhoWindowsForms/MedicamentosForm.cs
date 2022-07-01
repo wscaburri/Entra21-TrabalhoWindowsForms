@@ -19,40 +19,63 @@
             var tipo = Convert.ToString(comboBoxTipoMedicamento.SelectedItem);
             var forma = Convert.ToString(SelecionarFormaMedicamento());
             var recomendacao = Convert.ToString(VerificarRecomendacaoSelecionada());
+            var dataCadastro = dateTimePickerDataCadastro.Value;
 
+            var dadosValidos = ValidarDados(nome, tipo, forma, recomendacao, dataCadastro);
 
-            //var dadosValidos = ValidarDados(nome, tipo);
-
-            //if (dadosValidos == false)
-            //    return;
+            if (dadosValidos == false)
+                return;
 
             if (dataGridViewMedicamentos.SelectedRows.Count == 0)
-                CadastrarMedicamento(nome, tipo, forma, recomendacao);
+                CadastrarMedicamento(nome, tipo, forma, recomendacao, dataCadastro);
             else
-                EditarMedicamento(nome, tipo, forma, recomendacao);
+                EditarMedicamento(nome, tipo, forma, recomendacao, dataCadastro);
 
             PreencherDataGridViewComMedicamentos();
 
             LimparCampos();
         }
 
-        public void LimparCampos()
+        private void CadastrarMedicamento(string nome, string tipo, string forma, string recomendacao, DateTime dataCadastro)
         {
-            textBoxNomeMedicamento.Text = "";
-            comboBoxTipoMedicamento.SelectedIndex = -1;
-            radioButtonComprimido.Checked = false;
-            radioButtonLiquida.Checked = false;
-            radioButtonVacina.Checked = false;
-            checkBoxCaes.Checked = false;
-            checkBoxGatos.Checked = false;
+            var medicamentos = new Medicamentos();
 
+            medicamentos.Codigo = medicamentosServico.ObterUltimoCodigo() + 1;
+            medicamentos.Nome = nome;
+            medicamentos.Tipo = tipo;
+            medicamentos.Forma = forma;
+            medicamentos.Recomendacao = recomendacao;
+            medicamentos.DataCadastro = dataCadastro;
 
-            dataGridViewMedicamentos.ClearSelection();
+            medicamentosServico.Adicionar(medicamentos);
+        }
+
+        public void EditarMedicamento(string nome, string tipo, string forma, string recomendacao, DateTime dataCadastro)
+        {
+            var linhaSelecionada = dataGridViewMedicamentos.SelectedRows[0];
+
+            var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+            var medicamento = new Medicamentos();
+
+            medicamento.Codigo = codigoSelecionado;
+            medicamento.Nome = nome;
+            medicamento.Tipo = tipo;
+            medicamento.Forma = forma;
+            medicamento.Recomendacao = recomendacao;
+            medicamento.DataCadastro = dataCadastro;
+
+            medicamentosServico.Editar(medicamento);
         }
 
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             LimparCampos();
+        }
+
+        private void buttonEditar_Click(object sender, EventArgs e)
+        {
+            ApresentarDadosParaEditar();
         }
 
         private void ApresentarDadosParaEditar()
@@ -68,17 +91,11 @@
 
             var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
 
-            var nome = medicamentosServico.ObterPorCodigo(codigo);
+            var medicamento = medicamentosServico.ObterPorCodigo(codigo);
 
-            textBoxNomeMedicamento.Text = nome.Nome;
-            comboBoxTipoMedicamento.SelectedItem = nome.Tipo;
-
-
-        }
-
-        private void buttonEditar_Click(object sender, EventArgs e)
-        {
-            ApresentarDadosParaEditar();
+            textBoxNomeMedicamento.Text = medicamento.Nome;
+            comboBoxTipoMedicamento.SelectedItem = medicamento.Tipo;
+            dateTimePickerDataCadastro.Text = Convert.ToString(medicamento.DataCadastro);
         }
 
         private void buttonApagar_Click(object sender, EventArgs e)
@@ -113,6 +130,19 @@
             dataGridViewMedicamentos.ClearSelection();
         }
 
+        public void LimparCampos()
+        {
+            textBoxNomeMedicamento.Text = "";
+            comboBoxTipoMedicamento.SelectedIndex = -1;
+            radioButtonComprimido.Checked = false;
+            radioButtonLiquida.Checked = false;
+            radioButtonVacina.Checked = false;
+            checkBoxCaes.Checked = false;
+            checkBoxGatos.Checked = false;
+            dateTimePickerDataCadastro.ResetText();
+            dataGridViewMedicamentos.ClearSelection();
+        }
+
         private void PreencherDataGridViewComMedicamentos()
         {
             var medicamentos = medicamentosServico.ObterTodos();
@@ -129,42 +159,12 @@
                         medicamento.Nome,
                         medicamento.Tipo,
                         medicamento.Forma,
-                        medicamento.Recomendacao
-                        
+                        medicamento.Recomendacao,
+                        medicamento.DataCadastro.ToString("dd/MM/yyyy")
                 });
             }
 
             dataGridViewMedicamentos.ClearSelection();
-        }
-
-        private void CadastrarMedicamento(string nome, string tipo, string forma, string recomendacao)
-        {
-            var medicamentos = new Medicamentos();
-
-            medicamentos.Codigo = medicamentosServico.ObterUltimoCodigo() + 1;
-            medicamentos.Nome = nome;
-            medicamentos.Tipo = tipo;
-            medicamentos.Forma = forma;
-            medicamentos.Recomendacao = recomendacao;
-
-            medicamentosServico.Adicionar(medicamentos);
-        }
-
-        public void EditarMedicamento(string nome, string tipo, string forma, string recomendacao)
-        {
-            var linhaSelecionada = dataGridViewMedicamentos.SelectedRows[0];
-
-            var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-
-            var medicamento = new Medicamentos();
-
-            medicamento.Codigo = codigoSelecionado;
-            medicamento.Nome = nome;
-            medicamento.Tipo = tipo;
-            medicamento.Forma = forma;
-            medicamento.Recomendacao = recomendacao;
-
-            medicamentosServico.Editar(medicamento);
         }
 
         private string SelecionarFormaMedicamento()
@@ -195,6 +195,43 @@
                 recomendacao = "Gatos";
 
             return recomendacao;
+        }
+
+        private bool ValidarDados(string nome, string tipo, string forma, string recomendacao, DateTime dataCadastro)
+        {
+            if (nome.Trim().Length < 3)
+            {
+                MessageBox.Show("Nome do medicamento inválido.");
+
+                textBoxNomeMedicamento.Focus();
+
+                return false;
+            }
+
+            if (comboBoxTipoMedicamento.SelectedIndex == -1)
+            {
+                MessageBox.Show("Selecione o tipo do medicamento.");
+
+                comboBoxTipoMedicamento.DroppedDown = true;
+
+                return false;
+            }
+
+            if (radioButtonComprimido.Checked == false && radioButtonLiquida.Checked == false && radioButtonVacina.Checked == false)
+            {
+                MessageBox.Show("Selecione a forma do medicamento.");
+
+                return false;
+            }
+
+            if (checkBoxCaes.Checked == false && checkBoxGatos.Checked == false)
+            {
+                MessageBox.Show("Selecione a recomendação do medicamento.");
+
+                return false;
+            }
+
+            return true;
         }
 
         private void MedicamentosForm_Load(object sender, EventArgs e)

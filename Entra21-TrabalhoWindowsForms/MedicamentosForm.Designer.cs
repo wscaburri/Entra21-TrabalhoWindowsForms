@@ -134,13 +134,13 @@
             this.comboBoxTipoMedicamento.FormattingEnabled = true;
             this.comboBoxTipoMedicamento.Items.AddRange(new object[] {
             "Analgésico",
+            "Antibacteriano",
             "Antibiótico",
             "Antidepressivo",
             "Antigripal",
             "Antiinflamatório",
             "Antiséptico",
-            "Descongestionante nasal",
-            "Vacina"});
+            "Descongestionante nasal"});
             this.comboBoxTipoMedicamento.Location = new System.Drawing.Point(479, 115);
             this.comboBoxTipoMedicamento.Name = "comboBoxTipoMedicamento";
             this.comboBoxTipoMedicamento.Size = new System.Drawing.Size(332, 23);
@@ -233,7 +233,7 @@
             // 
             this.dateTimePickerDataCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePickerDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataCadastro.Location = new System.Drawing.Point(479, 309);
+            this.dateTimePickerDataCadastro.Location = new System.Drawing.Point(479, 362);
             this.dateTimePickerDataCadastro.Name = "dateTimePickerDataCadastro";
             this.dateTimePickerDataCadastro.Size = new System.Drawing.Size(200, 29);
             this.dateTimePickerDataCadastro.TabIndex = 13;
@@ -242,7 +242,7 @@
             // 
             this.labelDataCadastro.AutoSize = true;
             this.labelDataCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDataCadastro.Location = new System.Drawing.Point(479, 285);
+            this.labelDataCadastro.Location = new System.Drawing.Point(479, 338);
             this.labelDataCadastro.Name = "labelDataCadastro";
             this.labelDataCadastro.Size = new System.Drawing.Size(129, 21);
             this.labelDataCadastro.TabIndex = 14;
@@ -251,7 +251,7 @@
             // checkBoxCaes
             // 
             this.checkBoxCaes.AutoSize = true;
-            this.checkBoxCaes.Location = new System.Drawing.Point(480, 240);
+            this.checkBoxCaes.Location = new System.Drawing.Point(479, 230);
             this.checkBoxCaes.Name = "checkBoxCaes";
             this.checkBoxCaes.Size = new System.Drawing.Size(51, 19);
             this.checkBoxCaes.TabIndex = 15;
@@ -261,7 +261,7 @@
             // checkBoxGatos
             // 
             this.checkBoxGatos.AutoSize = true;
-            this.checkBoxGatos.Location = new System.Drawing.Point(537, 240);
+            this.checkBoxGatos.Location = new System.Drawing.Point(539, 230);
             this.checkBoxGatos.Name = "checkBoxGatos";
             this.checkBoxGatos.Size = new System.Drawing.Size(56, 19);
             this.checkBoxGatos.TabIndex = 16;
@@ -272,7 +272,7 @@
             // 
             this.labelRecomendacao.AutoSize = true;
             this.labelRecomendacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelRecomendacao.Location = new System.Drawing.Point(479, 216);
+            this.labelRecomendacao.Location = new System.Drawing.Point(479, 206);
             this.labelRecomendacao.Name = "labelRecomendacao";
             this.labelRecomendacao.Size = new System.Drawing.Size(116, 21);
             this.labelRecomendacao.TabIndex = 17;

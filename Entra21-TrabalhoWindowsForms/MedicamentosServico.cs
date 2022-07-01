@@ -9,6 +9,8 @@ namespace Entra21_TrabalhoWindowsForms
         public MedicamentosServico()
         {
             medicamentos = new List<Medicamentos>();
+
+            LerArquivo();
         }
 
         public void Adicionar(Medicamentos medicamento)
@@ -30,44 +32,13 @@ namespace Entra21_TrabalhoWindowsForms
                     medicamento.Tipo = medicamentoParaEditar.Tipo;
                     medicamento.Forma = medicamentoParaEditar.Forma;
                     medicamento.Recomendacao = medicamentoParaEditar.Recomendacao;
+                    medicamento.DataCadastro = medicamentoParaEditar.DataCadastro;
 
                     SalvarArquivo();
 
                     return;
                 }
             }
-        }
-
-        public List<Medicamentos> ObterTodos()
-        {
-            return medicamentos;
-        }
-
-        public int ObterUltimoCodigo()
-        {
-            var ultimoCodigo = 0;
-
-            for (var i = 0; i < medicamentos.Count; i++)
-            {
-                var medicamento = medicamentos[i];
-
-                ultimoCodigo = medicamento.Codigo;
-            }
-
-            return ultimoCodigo;
-        }
-
-        public Medicamentos ObterPorCodigo(int codigo)
-        {
-            for (var i = 0; i < medicamentos.Count; i++)
-            {
-                var medicamento = medicamentos[i];
-
-                if (medicamento.Codigo == codigo)
-                    return medicamento;
-            }
-
-            return null;
         }
 
         public void Apagar(Medicamentos medicamentoParaApagar)
@@ -85,7 +56,39 @@ namespace Entra21_TrabalhoWindowsForms
                     return;
                 }
             }
-        }    
+        }
+
+        public List<Medicamentos> ObterTodos()
+        {
+            return medicamentos;
+        }
+
+        public Medicamentos ObterPorCodigo(int codigo)
+        {
+            for (var i = 0; i < medicamentos.Count; i++)
+            {
+                var medicamento = medicamentos[i];
+
+                if (medicamento.Codigo == codigo)
+                    return medicamento;
+            }
+
+            return null;
+        }
+
+        public int ObterUltimoCodigo()
+        {
+            var ultimoCodigo = 0;
+
+            for (var i = 0; i < medicamentos.Count; i++)
+            {
+                var medicamento = medicamentos[i];
+
+                ultimoCodigo = medicamento.Codigo;
+            }
+
+            return ultimoCodigo;
+        }
 
         private void LerArquivo()
         {

@@ -1,56 +1,41 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace Entra21_TrabalhoWindowsForms
+﻿namespace Entra21_TrabalhoWindowsForms
 {
     public partial class CadastroPets : Form
     {
         private AnimalServico animalServico;
-        private Validacoes validacoes;
+
+        //private Validacoes validacoes;
         public CadastroPets()
         {
             InitializeComponent();
 
             animalServico = new AnimalServico();
 
-      //      ObterDados();
+            //      ObterDados();
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void textBox2_TextAlignChanged(object sender, EventArgs e)
         {
-
         }
 
         private void label11_Click(object sender, EventArgs e)
         {
-
         }
 
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
         {
-
         }
 
         private void CadastroPets_Load(object sender, EventArgs e)
         {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -70,9 +55,9 @@ namespace Entra21_TrabalhoWindowsForms
 
             LimparCampos();
         }
+
         public bool ValidarDados(string nome, DateTime nascimento, string pelagem, string peso, string doenca, bool vacinado, string especie, string raca)
         {
-
             if (nome.Trim().Length < 1)
             {
                 MessageBox.Show("Nome inválido, tente novamente.");
@@ -88,19 +73,19 @@ namespace Entra21_TrabalhoWindowsForms
                 MessageBox.Show("Doença inválida, digite novamente.");
                 return false;
             }
-            if(nascimento.Date.Year == nascimento.Date.Year)
+            if (nascimento.Date.Year == nascimento.Date.Year)
             {
                 MessageBox.Show("Cadastro nulo, escolha uma data válida");
                 return false;
-            }  
+            }
             if (comboBoxEspecie.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Escolha uma espécie.");
+            {
+                MessageBox.Show("Escolha uma espécie.");
 
-                    comboBoxEspecie.DroppedDown = true;
+                comboBoxEspecie.DroppedDown = true;
 
-                    return false;
-                }
+                return false;
+            }
             if (comboBoxRaca.SelectedIndex == -1)
             {
                 MessageBox.Show("Escolha uma raça.");
@@ -125,8 +110,8 @@ namespace Entra21_TrabalhoWindowsForms
 
         private void dateTimePickerDataDeCadastro_ValueChanged(object sender, EventArgs e)
         {
-
         }
+
         private void LimparCampos()
         {
             textBoxNome.Text = "";
@@ -142,18 +127,18 @@ namespace Entra21_TrabalhoWindowsForms
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-           ApresentarDadosParaEditar();
-
+            ApresentarDadosParaEditar();
         }
+
         private void ApresentarDadosParaEditar()
         {
             var linhaSelecionada = dataGridView1.SelectedRows[0];
             var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-            var nome = animalServico.ObterPorCodigo(codigo);   
+            var nome = animalServico.ObterPorCodigo(codigo);
         }
+
         private void richTextBoxObservacoes_TextChanged(object sender, EventArgs e)
         {
-
         }
     }
 }

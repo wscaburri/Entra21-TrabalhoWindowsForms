@@ -4,7 +4,6 @@ namespace Entra21_TrabalhoWindowsForms
 {
     internal class AnimalServico
     {
-
         private List<Animal> animais;
 
         public AnimalServico()
@@ -18,6 +17,7 @@ namespace Entra21_TrabalhoWindowsForms
         {
             return animais;
         }
+
         public Animal ObterPorCodigo(int codigo)
         {
             for (var i = 0; i < animais.Count; i++)
@@ -30,6 +30,7 @@ namespace Entra21_TrabalhoWindowsForms
             }
             return null;
         }
+
         public void Editar(Animal animalParaEditar)
         {
             var animal = ObterPorCodigo(animalParaEditar.Codigo);
@@ -45,16 +46,16 @@ namespace Entra21_TrabalhoWindowsForms
             animal.Alergias = animalParaEditar.Alergias;
             animal.Sexo = animalParaEditar.Sexo;
             animal.Especie = animalParaEditar.Especie;
-            animal.TipoRacao = animalParaEditar.TipoRacao;
+            //animal.TipoRacao = animalParaEditar.TipoRacao;
 
             SalvarArquivo();
         }
 
         public void Cadastrar(Animal animal)
         {
-
-           animais.Add(animal);
+            animais.Add(animal);
         }
+
         public void Apagar(int codigo)
         {
             for (int i = 0; i < animais.Count; i++)
@@ -71,11 +72,13 @@ namespace Entra21_TrabalhoWindowsForms
                 }
             }
         }
+
         private void SalvarArquivo()
         {
             var animalJson = JsonConvert.SerializeObject(animais);
             File.WriteAllText("animal.json", animalJson);
         }
+
         private void LerArquivo()
         {
             if (File.Exists("animais.json") == false)
@@ -84,9 +87,6 @@ namespace Entra21_TrabalhoWindowsForms
             var animaisJson = File.ReadAllText("animais.json");
 
             animais = JsonConvert.DeserializeObject<List<Animal>>(animaisJson);
-
-
         }
-
     }
 }
