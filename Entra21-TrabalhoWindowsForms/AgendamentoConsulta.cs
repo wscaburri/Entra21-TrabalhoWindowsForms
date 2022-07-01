@@ -7,5 +7,6 @@
         public DateTime HoraConsulta;
         public Responsavel NomeResponsavel;
         public Animal NomePet;
+        public Veterinario NomeVeterinario;
     }
 }
