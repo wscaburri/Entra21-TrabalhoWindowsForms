@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,7 +15,7 @@ namespace Entra21_TrabalhoWindowsForms
     {
         private ResponsavelServico responsavelServico;
         private AnimalServico animalServico;
-        private Responsavel ObjetoResponsavel;
+        private Responsavel Resp;
 
         public ResponsavelForm()
         {
@@ -22,7 +23,11 @@ namespace Entra21_TrabalhoWindowsForms
 
             responsavelServico = new ResponsavelServico();
 
+            PreecherDataGridViewComResponsaveis();
+
             PreencherComboBoxComNomeAnimais();
+
+            ObterDadosCep();
         }
 
         private void PreencherComboBoxComNomeAnimais()
@@ -35,13 +40,13 @@ namespace Entra21_TrabalhoWindowsForms
         {
             maskedTextBoxCep.Text = "";
             maskedTextBoxCpf.Text = "";
-           
-            
+
+
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            
+            var linha selecionada =
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -63,10 +68,10 @@ namespace Entra21_TrabalhoWindowsForms
             var telefone = maskedTextBoxTelefone.Text;
             var celular = maskedTextBoxCelular.Text;
             var email = textBoxEmail.Text;
-            
-            
-            
-            var dadosValidos = ObjetoResponsavel.ValidarCpf(cpf);
+
+
+
+            var dadosValidos = Resp.ValidarCpf(cpf);
             if (dadosValidos == false)
             {
                 return;
@@ -77,7 +82,7 @@ namespace Entra21_TrabalhoWindowsForms
 
             }
 
-            
+
 
         }
         private void PreecherDataGridViewComResponsaveis()
@@ -93,18 +98,125 @@ namespace Entra21_TrabalhoWindowsForms
                 dataGridView1.Rows.Add(new object[]
                 {
                     responsavel.Codigo,
-                    responsavel.Tipo,
                     responsavel.NomeCompleto,
                     responsavel.Cpf,
                     responsavel.DataNascimento,
-                    responsavel.Cep,
-                    responsavel.Cidade,
-                    responsavel.Bairro,
-
 
                 });
 
             }
+            dataGridView1.Rows.Clear();
         }
+
+        public void CadastrarResponsavel(string nomeCompleto, string tipo, string cpf, DateTime dataNascimento,
+            string cep, string cidade, string bairro, string endereco,
+            string numeroResidencia, string complemento,
+            string localDeTrabalho, string telefone, string celular, string email, int codigoAnimal)
+        {
+            var responsavel = new Responsavel();
+            responsavel.Codigo = responsavelServico.ObterPorUltimoCodigo() + 1;
+            responsavel.NomeCompleto = nomeCompleto;
+            responsavel.Tipo = tipo;
+            responsavel.Cpf = cpf;
+            responsavel.DataNascimento = dataNascimento;
+            responsavel.Cep = cep;
+            responsavel.Cidade = cidade;
+            responsavel.Bairro = bairro;
+            responsavel.Endereco = endereco;
+            responsavel.NumeroResidencia = numeroResidencia;
+            responsavel.Complemento = complemento;
+            responsavel.LocalDeTrabalho = localDeTrabalho;
+            responsavel.Telefone = telefone;
+            responsavel.Celular = celular;
+            responsavel.Email = email;
+            responsavel.Pet = animalServico.ObterPorCodigo(codigoAnimal);
+
+            responsavelServico.Adicionar(responsavel);
+
+        }
+        private void ObterDadosCep()
+        {
+            var cep = maskedTextBoxCep.Text.Replace("-", "").Trim();
+
+            if (cep.Length != 8)
+            {
+                return;
+            }
+
+            var httpClient = new HttpClient();
+
+            var resultado = httpClient.GetAsync($"https://viacep.com.br/ws/{cep}/json/").Result;
+
+            if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+               
+                var resposta = resultado.Content.ReadAsStringAsync().Result;
+
+                var dadosResponsavel = JsonConvert.DeserializeObject<ResponsavelDadosRequisicao>(resposta);
+
+                maskedTextBoxCep.Text = $"{dadosResponsavel.Cep}";
+                textBoxEndereco.Text = $" - {dadosResponsavel.Logradouro}";
+                comboBoxCidade.Text = $"{dadosResponsavel.Localidade}";
+                textBoxBairro.Text = $"{dadosResponsavel.Bairro}";
+
+            }
+        }
+
+        private void maskedTextBoxCep_Leave(object sender, EventArgs e)
+        {
+            ObterDadosCep();
+        }
+        private void textBoxEndereco_Leave(object sender, EventArgs e)
+        {
+            ObterDadosCep();
+        }
+        public bool ValidarDados(string nomeCompleto, string tipo, string cpf, DateTime dataNascimento,
+            string cep, string cidade, string bairro, string enderecoCompleto,
+            string numeroResidencia, string complemento,
+            string localDeTrabalho, string telefone, string celular)
+        {
+            Resp.ValidarCpf(cpf);
+
+            if (cep.Replace("-", "").Trim().Length != 8)
+            {
+                MessageBox.Show("Cep inválido");
+
+                maskedTextBoxCep.Focus();
+
+                return false;
+            }
+            if (enderecoCompleto.Trim().Length < 10)
+            {
+                MessageBox.Show("Endereço completo deve conter no mínimo 10 caracteres");
+
+                textBoxEndereco.Focus();
+
+                return false;
+            }
+            if (bairro.Trim().Length < 2)
+            {
+                MessageBox.Show("Bairro deve conter no mínimo 2 caracteres");
+
+                textBoxBairro.Focus();
+            }
+            if (comboBoxCidade.SelectedIndex == -1)
+            {
+                MessageBox.Show("Escolha uma cidade");
+
+                comboBoxCidade.DroppedDown = true;
+
+                return false;
+            }
+            if (comboBoxNomePet.SelectedIndex == -1)
+            {
+                MessageBox.Show("Escolha um animal");
+
+                comboBoxNomePet.DroppedDown = true;
+
+                return false;
+            }
+            return true;
+        }
+
     }
 }
