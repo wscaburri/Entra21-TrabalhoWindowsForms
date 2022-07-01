@@ -8,7 +8,7 @@ namespace Entra21_TrabalhoWindowsForms
 {
     public class Validacoes
     {
-        public bool ValidarCPF(string cpf)
+        public bool ValidarCpf(string cpf)
         {
             string valor = cpf.Replace(".", "");
             valor = valor.Replace("-", "");

@@ -119,8 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.BackgroundImage = global::Entra21_TrabalhoWindowsForms.Properties.Resources.B42E7514_543A_4DBA_B672_1418E7227D59;
-            this.ClientSize = new System.Drawing.Size(1824, 865);
+            this.ClientSize = new System.Drawing.Size(1370, 749);
             this.Controls.Add(this.labelBoasVindas);
             this.Controls.Add(this.buttonCadastroRemedios);
             this.Controls.Add(this.buttonMarcarHorario);
