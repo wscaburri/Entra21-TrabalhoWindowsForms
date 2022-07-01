@@ -38,6 +38,9 @@ namespace Entra21_TrabalhoWindowsForms
         }
         private void LimparCampos()
         {
+            var dataAtual = DateTime.Now;
+            textBoxNomeCompleto.Text = "";
+            dateTimePickerDataCadastro.MaxDate = dataAtual;
             maskedTextBoxCep.Text = "";
             maskedTextBoxCpf.Text = "";
 
@@ -77,7 +80,7 @@ namespace Entra21_TrabalhoWindowsForms
             var tipo = Convert.ToString(comboBoxTipo.SelectedItem);
             var nomeCompleto = textBoxNomeCompleto.Text;
             var cpf = maskedTextBoxCpf.Text;
-            var dataNascimento = Convert.ToString(dateTimePickerDataCadastro.Text);
+            var dataNascimento = Convert.ToString(dateTimePickerDataCadastro.Value);
             var cep = maskedTextBoxCep.Text;
             var cidade = Convert.ToString(comboBoxCidade.SelectedItem);
             var bairro = textBoxBairro.Text;
@@ -86,12 +89,11 @@ namespace Entra21_TrabalhoWindowsForms
             var complemento = textBoxComplemento.Text;
             var localDeTrabalho = textBoxLocalDeTrabalho.Text;
             var observacao = textBoxObservacaoLocalDeTrabalho;
-            var dataDeCadastro = Convert.ToString(dateTimePickerDataCadastro.Text);
+            var dataDeCadastro = Convert.ToString(dateTimePickerDataCadastro.Value);
             var nomePet = comboBoxNomePet.Text;
             var telefone = maskedTextBoxTelefone.Text;
             var celular = maskedTextBoxCelular.Text;
             var email = textBoxEmail.Text;
-            var nomePet = comboBoxNomePet.Text;
 
 
 
@@ -102,20 +104,24 @@ namespace Entra21_TrabalhoWindowsForms
             }
 
             if (dataGridView1.SelectedRows.Count == 0)
-                CadastrarResponsavel(nomeCompleto, cpf, dataDeCadastro);
+                CadastrarResponsavel(nomeCompleto, tipo, cpf, dataNascimento,
+              cep, cidade, bairro, endereco,
+              numeroResidencia, complemento,
+              localDeTrabalho, telefone, celular, email, nomePet);
+            
             else
-                EditarResponsavel( nomeCompleto,  tipo,  cpf,
-             cep,  cidade,  bairro,  endereco,
-             numeroResidencia,  complemento,
-             localDeTrabalho,  telefone,  celular,  email, nomePet);
+                EditarResponsavel(nomeCompleto, tipo, cpf, dataNascimento,
+             cep, cidade, bairro, endereco,
+             numeroResidencia, complemento,
+             localDeTrabalho, telefone, celular, email, nomePet);
 
 
 
         }
-        private void EditarResponsavel(string nomeCompleto, string tipo, string cpf, 
+        private void EditarResponsavel(string nomeCompleto, string tipo, string cpf, string dataNascimento,
             string cep, string cidade, string bairro, string endereco,
             string numeroResidencia, string complemento,
-            string localDeTrabalho, string telefone, string celular, string email, string codigoAnimal)
+            string localDeTrabalho, string telefone, string celular, string email, string nomeAnimal)
         {
             // Obter linha selecionada
             var linhaSelecionada = dataGridView1.SelectedRows[0];
@@ -126,6 +132,7 @@ namespace Entra21_TrabalhoWindowsForms
             var responsavel = new Responsavel();
             responsavel.Codigo = codigoSelecionado;
             responsavel.NomeCompleto = nomeCompleto;
+            responsavel.DataNascimento = Convert.ToDateTime(dataNascimento); 
             responsavel.Tipo = tipo;
             responsavel.Cpf = cpf;
             responsavel.Cep = cep;
@@ -138,7 +145,7 @@ namespace Entra21_TrabalhoWindowsForms
             responsavel.Telefone = telefone;
             responsavel.Celular = celular;
             responsavel.Email = email;
-            responsavel.Pet = animalServico.ObterPorCodigo(Convert.ToInt32(codigoAnimal));
+            responsavel.Pet = animalServico.ObterPorNomeAnimal(nomeAnimal);
 
             // Atualizar o dado na lista de endereços e salvar o dado atualizado no arquivo JSON
             responsavelServico.Editar(responsavel);
@@ -166,17 +173,17 @@ namespace Entra21_TrabalhoWindowsForms
             dataGridView1.Rows.Clear();
         }
 
-        public void CadastrarResponsavel(string nomeCompleto, string tipo, string cpf, DateTime dataNascimento,
+        public void CadastrarResponsavel(string nomeCompleto, string tipo, string cpf, string dataNascimento,
             string cep, string cidade, string bairro, string endereco,
             string numeroResidencia, string complemento,
-            string localDeTrabalho, string telefone, string celular, string email, int codigoAnimal)
+            string localDeTrabalho, string telefone, string celular, string email, string nomeAnimal)
         {
             var responsavel = new Responsavel();
             responsavel.Codigo = responsavelServico.ObterPorUltimoCodigo() + 1;
             responsavel.NomeCompleto = nomeCompleto;
             responsavel.Tipo = tipo;
             responsavel.Cpf = cpf;
-            responsavel.DataNascimento = dataNascimento;
+            responsavel.DataNascimento = Convert.ToDateTime(dataNascimento);
             responsavel.Cep = cep;
             responsavel.Cidade = cidade;
             responsavel.Bairro = bairro;
@@ -187,7 +194,7 @@ namespace Entra21_TrabalhoWindowsForms
             responsavel.Telefone = telefone;
             responsavel.Celular = celular;
             responsavel.Email = email;
-            responsavel.Pet = animalServico.ObterPorCodigo(codigoAnimal);
+            responsavel.Pet = animalServico.ObterPorNomeAnimal(nomeAnimal);
 
             responsavelServico.Adicionar(responsavel);
 

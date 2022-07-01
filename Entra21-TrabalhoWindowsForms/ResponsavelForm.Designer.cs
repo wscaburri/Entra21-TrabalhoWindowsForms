@@ -181,14 +181,15 @@
             // 
             // dateTimePickerDataNascimento
             // 
-            this.dateTimePickerDataNascimento.CustomFormat = "99/99/9999";
+            this.dateTimePickerDataNascimento.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerDataNascimento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePickerDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDataNascimento.Location = new System.Drawing.Point(12, 152);
+            this.dateTimePickerDataNascimento.MaxDate = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             this.dateTimePickerDataNascimento.Name = "dateTimePickerDataNascimento";
             this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(145, 29);
             this.dateTimePickerDataNascimento.TabIndex = 14;
-            this.dateTimePickerDataNascimento.Value = new System.DateTime(2022, 1, 7, 0, 0, 0, 0);
+            this.dateTimePickerDataNascimento.Value = new System.DateTime(2022, 7, 1, 0, 0, 0, 0);
             // 
             // labelDataNascimento
             // 
@@ -353,6 +354,7 @@
             // 
             // dateTimePickerDataCadastro
             // 
+            this.dateTimePickerDataCadastro.CustomFormat = "dd/MM/yyyy";
             this.dateTimePickerDataCadastro.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePickerDataCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDataCadastro.Location = new System.Drawing.Point(705, 273);
