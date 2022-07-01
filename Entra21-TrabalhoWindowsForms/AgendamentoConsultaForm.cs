@@ -9,10 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Entra21_TrabalhoWindowsForms
+
+    
 {
-    public partial class AgendamentoConsulta : Form
+    public partial class AgendamentoConsultaForm : Form        
+        
     {
-        public AgendamentoConsulta()
+        public AgendamentoConsultaForm()
         {
             InitializeComponent();
         }
