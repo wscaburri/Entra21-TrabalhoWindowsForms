@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridViewAgendamentoConsulta = new System.Windows.Forms.DataGridView();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnResponsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnVeterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePickerDataConsulta = new System.Windows.Forms.DateTimePicker();
             this.labelDataConsulta = new System.Windows.Forms.Label();
-            this.maskedTextBoxHoraConsulta = new System.Windows.Forms.MaskedTextBox();
             this.labelHoraConsulta = new System.Windows.Forms.Label();
             this.labelResponsavel = new System.Windows.Forms.Label();
             this.labelPet = new System.Windows.Forms.Label();
@@ -43,12 +48,7 @@
             this.buttonApagar = new System.Windows.Forms.Button();
             this.labelVeterinario = new System.Windows.Forms.Label();
             this.comboBoxVeterinario = new System.Windows.Forms.ComboBox();
-            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnResponsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPet = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnVeterinario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateTimePickerHoraConsulta = new System.Windows.Forms.DateTimePicker();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAgendamentoConsulta)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,6 +73,54 @@
             this.dataGridViewAgendamentoConsulta.Size = new System.Drawing.Size(506, 492);
             this.dataGridViewAgendamentoConsulta.TabIndex = 0;
             // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Código";
+            this.ColumnCodigo.MinimumWidth = 6;
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            this.ColumnCodigo.Width = 125;
+            // 
+            // ColumnData
+            // 
+            this.ColumnData.HeaderText = "Data";
+            this.ColumnData.MinimumWidth = 6;
+            this.ColumnData.Name = "ColumnData";
+            this.ColumnData.ReadOnly = true;
+            this.ColumnData.Width = 125;
+            // 
+            // ColumnHora
+            // 
+            this.ColumnHora.HeaderText = "Hora";
+            this.ColumnHora.MinimumWidth = 6;
+            this.ColumnHora.Name = "ColumnHora";
+            this.ColumnHora.ReadOnly = true;
+            this.ColumnHora.Width = 125;
+            // 
+            // ColumnResponsavel
+            // 
+            this.ColumnResponsavel.HeaderText = "Nome do Responsável";
+            this.ColumnResponsavel.MinimumWidth = 6;
+            this.ColumnResponsavel.Name = "ColumnResponsavel";
+            this.ColumnResponsavel.ReadOnly = true;
+            this.ColumnResponsavel.Width = 125;
+            // 
+            // ColumnPet
+            // 
+            this.ColumnPet.HeaderText = "Nome do Pet";
+            this.ColumnPet.MinimumWidth = 6;
+            this.ColumnPet.Name = "ColumnPet";
+            this.ColumnPet.ReadOnly = true;
+            this.ColumnPet.Width = 125;
+            // 
+            // ColumnVeterinario
+            // 
+            this.ColumnVeterinario.HeaderText = "Nome do Veterinário";
+            this.ColumnVeterinario.MinimumWidth = 6;
+            this.ColumnVeterinario.Name = "ColumnVeterinario";
+            this.ColumnVeterinario.ReadOnly = true;
+            this.ColumnVeterinario.Width = 125;
+            // 
             // dateTimePickerDataConsulta
             // 
             this.dateTimePickerDataConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -80,7 +128,7 @@
             this.dateTimePickerDataConsulta.Location = new System.Drawing.Point(176, 114);
             this.dateTimePickerDataConsulta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.dateTimePickerDataConsulta.Name = "dateTimePickerDataConsulta";
-            this.dateTimePickerDataConsulta.Size = new System.Drawing.Size(126, 34);
+            this.dateTimePickerDataConsulta.Size = new System.Drawing.Size(162, 34);
             this.dateTimePickerDataConsulta.TabIndex = 1;
             // 
             // labelDataConsulta
@@ -92,17 +140,6 @@
             this.labelDataConsulta.Size = new System.Drawing.Size(158, 28);
             this.labelDataConsulta.TabIndex = 2;
             this.labelDataConsulta.Text = "Selecione a data:";
-            // 
-            // maskedTextBoxHoraConsulta
-            // 
-            this.maskedTextBoxHoraConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxHoraConsulta.Location = new System.Drawing.Point(177, 172);
-            this.maskedTextBoxHoraConsulta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.maskedTextBoxHoraConsulta.Mask = "00:00";
-            this.maskedTextBoxHoraConsulta.Name = "maskedTextBoxHoraConsulta";
-            this.maskedTextBoxHoraConsulta.Size = new System.Drawing.Size(54, 34);
-            this.maskedTextBoxHoraConsulta.TabIndex = 3;
-            this.maskedTextBoxHoraConsulta.ValidatingType = typeof(System.DateTime);
             // 
             // labelHoraConsulta
             // 
@@ -173,6 +210,7 @@
             this.buttonSalvar.TabIndex = 10;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // buttonEditar
             // 
@@ -213,59 +251,21 @@
             this.comboBoxVeterinario.Size = new System.Drawing.Size(361, 36);
             this.comboBoxVeterinario.TabIndex = 14;
             // 
-            // ColumnCodigo
+            // dateTimePickerHoraConsulta
             // 
-            this.ColumnCodigo.HeaderText = "Código";
-            this.ColumnCodigo.MinimumWidth = 6;
-            this.ColumnCodigo.Name = "ColumnCodigo";
-            this.ColumnCodigo.ReadOnly = true;
-            this.ColumnCodigo.Width = 125;
-            // 
-            // ColumnData
-            // 
-            this.ColumnData.HeaderText = "Data";
-            this.ColumnData.MinimumWidth = 6;
-            this.ColumnData.Name = "ColumnData";
-            this.ColumnData.ReadOnly = true;
-            this.ColumnData.Width = 125;
-            // 
-            // ColumnHora
-            // 
-            this.ColumnHora.HeaderText = "Hora";
-            this.ColumnHora.MinimumWidth = 6;
-            this.ColumnHora.Name = "ColumnHora";
-            this.ColumnHora.ReadOnly = true;
-            this.ColumnHora.Width = 125;
-            // 
-            // ColumnResponsavel
-            // 
-            this.ColumnResponsavel.HeaderText = "Nome do Responsável";
-            this.ColumnResponsavel.MinimumWidth = 6;
-            this.ColumnResponsavel.Name = "ColumnResponsavel";
-            this.ColumnResponsavel.ReadOnly = true;
-            this.ColumnResponsavel.Width = 125;
-            // 
-            // ColumnPet
-            // 
-            this.ColumnPet.HeaderText = "Nome do Pet";
-            this.ColumnPet.MinimumWidth = 6;
-            this.ColumnPet.Name = "ColumnPet";
-            this.ColumnPet.ReadOnly = true;
-            this.ColumnPet.Width = 125;
-            // 
-            // ColumnVeterinario
-            // 
-            this.ColumnVeterinario.HeaderText = "Nome do Veterinário";
-            this.ColumnVeterinario.MinimumWidth = 6;
-            this.ColumnVeterinario.Name = "ColumnVeterinario";
-            this.ColumnVeterinario.ReadOnly = true;
-            this.ColumnVeterinario.Width = 125;
+            this.dateTimePickerHoraConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.dateTimePickerHoraConsulta.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerHoraConsulta.Location = new System.Drawing.Point(176, 172);
+            this.dateTimePickerHoraConsulta.Name = "dateTimePickerHoraConsulta";
+            this.dateTimePickerHoraConsulta.Size = new System.Drawing.Size(162, 34);
+            this.dateTimePickerHoraConsulta.TabIndex = 15;
             // 
             // AgendamentoConsultaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(943, 600);
+            this.Controls.Add(this.dateTimePickerHoraConsulta);
             this.Controls.Add(this.comboBoxVeterinario);
             this.Controls.Add(this.labelVeterinario);
             this.Controls.Add(this.buttonApagar);
@@ -277,7 +277,6 @@
             this.Controls.Add(this.labelPet);
             this.Controls.Add(this.labelResponsavel);
             this.Controls.Add(this.labelHoraConsulta);
-            this.Controls.Add(this.maskedTextBoxHoraConsulta);
             this.Controls.Add(this.labelDataConsulta);
             this.Controls.Add(this.dateTimePickerDataConsulta);
             this.Controls.Add(this.dataGridViewAgendamentoConsulta);
@@ -295,7 +294,6 @@
         private DataGridView dataGridViewAgendamentoConsulta;
         private DateTimePicker dateTimePickerDataConsulta;
         private Label labelDataConsulta;
-        private MaskedTextBox maskedTextBoxHoraConsulta;
         private Label labelHoraConsulta;
         private Label labelResponsavel;
         private Label labelPet;
@@ -313,5 +311,6 @@
         private DataGridViewTextBoxColumn ColumnResponsavel;
         private DataGridViewTextBoxColumn ColumnPet;
         private DataGridViewTextBoxColumn ColumnVeterinario;
+        private DateTimePicker dateTimePickerHoraConsulta;
     }
 }
