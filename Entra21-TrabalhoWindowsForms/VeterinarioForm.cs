@@ -76,7 +76,7 @@
 
             var veterinario = new Veterinario();
 
-            veterinario.Codigo = veterinarioServico.ObterUltimoCodigo() + 1;
+            veterinario.Codigo = codigoSelecionado;
             veterinario.Nome = nome;
             veterinario.Cpf = cpf;
             veterinario.DataAdmissao = dataAdmissao;
