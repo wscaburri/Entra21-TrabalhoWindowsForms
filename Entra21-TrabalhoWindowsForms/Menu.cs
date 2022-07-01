@@ -20,7 +20,7 @@ namespace Entra21_TrabalhoWindowsForms
 
         private void buttonRegistroGeral_Click(object sender, EventArgs e)
         {
-            var registroGeralForm = new RegistroGeral();
+            var registroGeralForm = new RegistroGeralForm();
             registroGeralForm.ShowDialog();
         }
     }

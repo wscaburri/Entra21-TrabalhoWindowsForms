@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Entra21_TrabalhoWindowsForms
 {
-    public partial class RegistroGeral : Form
+    public partial class RegistroGeralForm : Form
     {
-        public RegistroGeral()
+        public RegistroGeralForm()
         {
             InitializeComponent();
         }
