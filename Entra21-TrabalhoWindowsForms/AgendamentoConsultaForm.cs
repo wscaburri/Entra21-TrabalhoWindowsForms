@@ -1,23 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿namespace Entra21_TrabalhoWindowsForms
 
-namespace Entra21_TrabalhoWindowsForms
-
-    
 {
-    public partial class AgendamentoConsultaForm : Form        
-        
+    public partial class AgendamentoConsultaForm : Form
+
+
+        private ResponsavelServico responsavelServico;
+    private AnimalServico animalServico;
+
     {
         public AgendamentoConsultaForm()
-        {
-            InitializeComponent();
-        }
+    {
+        InitializeComponent();
+
+        responsavelServico = new ResponsavelServico();
+
+        animalServico = new AnimalServico();
     }
+}
 }

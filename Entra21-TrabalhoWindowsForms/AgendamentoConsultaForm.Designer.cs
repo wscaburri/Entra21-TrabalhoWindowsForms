@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewAgendamentoConsulta = new System.Windows.Forms.DataGridView();
             this.dateTimePickerDataConsulta = new System.Windows.Forms.DateTimePicker();
             this.labelDataConsulta = new System.Windows.Forms.Label();
             this.maskedTextBoxHoraConsulta = new System.Windows.Forms.MaskedTextBox();
@@ -41,23 +41,34 @@
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.buttonApagar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNomeResponsavel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNomePet = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnData = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnHora = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAgendamentoConsulta)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridViewAgendamentoConsulta
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(367, 23);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(343, 369);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridViewAgendamentoConsulta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewAgendamentoConsulta.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnCodigo,
+            this.ColumnNomeResponsavel,
+            this.ColumnNomePet,
+            this.ColumnData,
+            this.ColumnHora});
+            this.dataGridViewAgendamentoConsulta.Location = new System.Drawing.Point(310, 23);
+            this.dataGridViewAgendamentoConsulta.Name = "dataGridViewAgendamentoConsulta";
+            this.dataGridViewAgendamentoConsulta.RowTemplate.Height = 25;
+            this.dataGridViewAgendamentoConsulta.Size = new System.Drawing.Size(495, 369);
+            this.dataGridViewAgendamentoConsulta.TabIndex = 0;
             // 
             // dateTimePickerDataConsulta
             // 
             this.dateTimePickerDataConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePickerDataConsulta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataConsulta.Location = new System.Drawing.Point(164, 100);
+            this.dateTimePickerDataConsulta.Location = new System.Drawing.Point(143, 92);
             this.dateTimePickerDataConsulta.Name = "dateTimePickerDataConsulta";
             this.dateTimePickerDataConsulta.Size = new System.Drawing.Size(111, 29);
             this.dateTimePickerDataConsulta.TabIndex = 1;
@@ -66,7 +77,7 @@
             // 
             this.labelDataConsulta.AutoSize = true;
             this.labelDataConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelDataConsulta.Location = new System.Drawing.Point(33, 108);
+            this.labelDataConsulta.Location = new System.Drawing.Point(12, 100);
             this.labelDataConsulta.Name = "labelDataConsulta";
             this.labelDataConsulta.Size = new System.Drawing.Size(125, 21);
             this.labelDataConsulta.TabIndex = 2;
@@ -75,7 +86,7 @@
             // maskedTextBoxHoraConsulta
             // 
             this.maskedTextBoxHoraConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxHoraConsulta.Location = new System.Drawing.Point(166, 151);
+            this.maskedTextBoxHoraConsulta.Location = new System.Drawing.Point(145, 143);
             this.maskedTextBoxHoraConsulta.Mask = "00:00";
             this.maskedTextBoxHoraConsulta.Name = "maskedTextBoxHoraConsulta";
             this.maskedTextBoxHoraConsulta.Size = new System.Drawing.Size(48, 29);
@@ -86,7 +97,7 @@
             // 
             this.labelHoraConsulta.AutoSize = true;
             this.labelHoraConsulta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelHoraConsulta.Location = new System.Drawing.Point(33, 159);
+            this.labelHoraConsulta.Location = new System.Drawing.Point(12, 151);
             this.labelHoraConsulta.Name = "labelHoraConsulta";
             this.labelHoraConsulta.Size = new System.Drawing.Size(127, 21);
             this.labelHoraConsulta.TabIndex = 4;
@@ -96,7 +107,7 @@
             // 
             this.labelResponsavel.AutoSize = true;
             this.labelResponsavel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelResponsavel.Location = new System.Drawing.Point(33, 208);
+            this.labelResponsavel.Location = new System.Drawing.Point(12, 200);
             this.labelResponsavel.Name = "labelResponsavel";
             this.labelResponsavel.Size = new System.Drawing.Size(183, 21);
             this.labelResponsavel.TabIndex = 5;
@@ -106,7 +117,7 @@
             // 
             this.labelPet.AutoSize = true;
             this.labelPet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.labelPet.Location = new System.Drawing.Point(33, 280);
+            this.labelPet.Location = new System.Drawing.Point(12, 272);
             this.labelPet.Name = "labelPet";
             this.labelPet.Size = new System.Drawing.Size(117, 21);
             this.labelPet.TabIndex = 6;
@@ -116,7 +127,7 @@
             // 
             this.comboBoxResponsavel.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxResponsavel.FormattingEnabled = true;
-            this.comboBoxResponsavel.Location = new System.Drawing.Point(33, 232);
+            this.comboBoxResponsavel.Location = new System.Drawing.Point(12, 224);
             this.comboBoxResponsavel.Name = "comboBoxResponsavel";
             this.comboBoxResponsavel.Size = new System.Drawing.Size(280, 29);
             this.comboBoxResponsavel.TabIndex = 7;
@@ -125,14 +136,14 @@
             // 
             this.comboBoxPet.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBoxPet.FormattingEnabled = true;
-            this.comboBoxPet.Location = new System.Drawing.Point(33, 304);
+            this.comboBoxPet.Location = new System.Drawing.Point(12, 296);
             this.comboBoxPet.Name = "comboBoxPet";
             this.comboBoxPet.Size = new System.Drawing.Size(280, 29);
             this.comboBoxPet.TabIndex = 8;
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(33, 357);
+            this.buttonCancelar.Location = new System.Drawing.Point(12, 349);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(75, 23);
             this.buttonCancelar.TabIndex = 9;
@@ -141,7 +152,7 @@
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(114, 357);
+            this.buttonSalvar.Location = new System.Drawing.Point(93, 349);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(75, 23);
             this.buttonSalvar.TabIndex = 10;
@@ -166,11 +177,36 @@
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
             // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Código";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            // 
+            // ColumnNomeResponsavel
+            // 
+            this.ColumnNomeResponsavel.HeaderText = "Nome do Responsável";
+            this.ColumnNomeResponsavel.Name = "ColumnNomeResponsavel";
+            // 
+            // ColumnNomePet
+            // 
+            this.ColumnNomePet.HeaderText = "Nome do Pet";
+            this.ColumnNomePet.Name = "ColumnNomePet";
+            // 
+            // ColumnData
+            // 
+            this.ColumnData.HeaderText = "Data";
+            this.ColumnData.Name = "ColumnData";
+            // 
+            // ColumnHora
+            // 
+            this.ColumnHora.HeaderText = "Hora";
+            this.ColumnHora.Name = "ColumnHora";
+            // 
             // AgendamentoConsultaForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(731, 450);
+            this.ClientSize = new System.Drawing.Size(825, 450);
             this.Controls.Add(this.buttonApagar);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonSalvar);
@@ -183,10 +219,10 @@
             this.Controls.Add(this.maskedTextBoxHoraConsulta);
             this.Controls.Add(this.labelDataConsulta);
             this.Controls.Add(this.dateTimePickerDataConsulta);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewAgendamentoConsulta);
             this.Name = "AgendamentoConsultaForm";
             this.Text = "AgendamentoConsulta";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAgendamentoConsulta)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -194,7 +230,7 @@
 
         #endregion
 
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewAgendamentoConsulta;
         private DateTimePicker dateTimePickerDataConsulta;
         private Label labelDataConsulta;
         private MaskedTextBox maskedTextBoxHoraConsulta;
@@ -207,5 +243,10 @@
         private Button buttonSalvar;
         private Button buttonEditar;
         private Button buttonApagar;
+        private DataGridViewTextBoxColumn ColumnCodigo;
+        private DataGridViewTextBoxColumn ColumnNomeResponsavel;
+        private DataGridViewTextBoxColumn ColumnNomePet;
+        private DataGridViewTextBoxColumn ColumnData;
+        private DataGridViewTextBoxColumn ColumnHora;
     }
 }
