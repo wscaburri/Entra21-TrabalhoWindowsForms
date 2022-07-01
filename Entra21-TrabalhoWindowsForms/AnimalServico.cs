@@ -30,6 +30,20 @@ namespace Entra21_TrabalhoWindowsForms
             }
             return null;
         }
+        public Animal ObterPorNomeAnimal(string nomeAnimal)
+        {
+            for (int i = 0; i < animais.Count; i++)
+            {
+                var animal = animais[i];
+
+                if (animal.Nome == nomeAnimal)
+                {
+                    return animal;
+                }
+
+            }
+            return null;
+        }
 
         public void Editar(Animal animalParaEditar)
         {

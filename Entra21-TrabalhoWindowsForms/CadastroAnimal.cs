@@ -1,11 +1,11 @@
 ﻿namespace Entra21_TrabalhoWindowsForms
 {
-    public partial class CadastroPets : Form
+    public partial class CadastroAnimal : Form
     {
         private AnimalServico animalServico;
 
         //private Validacoes validacoes;
-        public CadastroPets()
+        public CadastroAnimal()
         {
             InitializeComponent();
 

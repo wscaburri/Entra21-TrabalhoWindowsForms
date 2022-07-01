@@ -1,6 +1,6 @@
 ﻿namespace Entra21_TrabalhoWindowsForms
 {
-    partial class CadastroPets
+    partial class CadastroAnimal
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroPets));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CadastroAnimal));
             this.buttonSalvar = new System.Windows.Forms.Button();
             this.buttonEditar = new System.Windows.Forms.Button();
             this.textBoxNome = new System.Windows.Forms.TextBox();
