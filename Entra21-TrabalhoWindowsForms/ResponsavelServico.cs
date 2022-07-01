@@ -86,13 +86,13 @@ namespace Entra21_TrabalhoWindowsForms
 
         }
 
-        public void Apagar(int codigo)
+        public void Apagar(Responsavel responsavelParaApagar)
         {
             for (int i = 0; i < responsaveis.Count; i++)
             {
                 var responsavel = responsaveis[i];
 
-                if (responsavel.Codigo == codigo)
+                if (responsavel.Codigo == responsavelParaApagar.Codigo)
                 {
                     responsaveis.Remove(responsavel);
 

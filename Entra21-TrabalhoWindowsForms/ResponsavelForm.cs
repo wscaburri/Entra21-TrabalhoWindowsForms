@@ -40,8 +40,18 @@ namespace Entra21_TrabalhoWindowsForms
         {
             var dataAtual = DateTime.Now;
             textBoxNomeCompleto.Text = "";
-            dateTimePickerDataCadastro.MaxDate = dataAtual;
+            textBoxEndereco.Text = "";
+            textBoxBairro.Text = "";
+            comboBoxCidade.SelectedIndex = -1;
+            textBoxNumero.Text = "";
+            textBoxComplemento.Text = "";
+            textBoxLocalDeTrabalho.Text = "";
+            textBoxObservacaoLocalDeTrabalho.Text = "";
+            textBoxEmail.Text = "";
+            dateTimePickerDataCadastro.Value = dataAtual;
             maskedTextBoxCep.Text = "";
+            maskedTextBoxCelular.Text = "";
+            maskedTextBoxTelefone.Text = "";
             maskedTextBoxCpf.Text = "";
 
 
@@ -235,12 +245,18 @@ namespace Entra21_TrabalhoWindowsForms
         {
             ObterDadosCep();
         }
-        public bool ValidarDados(string nomeCompleto, string tipo, string cpf,
+        public bool ValidarDados(string nomeCompleto, string cpf,
             string cep, string cidade, string bairro, string enderecoCompleto,
-            string numeroResidencia, string complemento,
-            string localDeTrabalho, string telefone, string celular)
+            string numeroResidencia, string localDeTrabalho, string telefone, string celular)
         {
-            Resp.ValidarCpf(cpf);
+         
+            if (Resp.ValidarCpf(cpf) == false)
+            {
+                MessageBox.Show("CPF inválido");
+                
+                maskedTextBoxCpf.Focus();
+                return false;
+            }
 
             if (cep.Replace("-", "").Trim().Length != 8)
             {
@@ -264,6 +280,13 @@ namespace Entra21_TrabalhoWindowsForms
 
                 textBoxBairro.Focus();
             }
+            if (comboBoxTipo.SelectedIndex == -1)
+            {
+                MessageBox.Show("Escolha o tipo de pessoa");
+                
+                comboBoxTipo.DroppedDown = true;
+
+            }
             if (comboBoxCidade.SelectedIndex == -1)
             {
                 MessageBox.Show("Escolha uma cidade");
@@ -272,6 +295,7 @@ namespace Entra21_TrabalhoWindowsForms
 
                 return false;
             }
+            
             if (comboBoxNomePet.SelectedIndex == -1)
             {
                 MessageBox.Show("Escolha um animal");
@@ -283,10 +307,47 @@ namespace Entra21_TrabalhoWindowsForms
             var dataAtual = DateTime.Now;
             if (dateTimePickerDataNascimento.Value == dataAtual )
             {
-
+                MessageBox.Show("Preencha a data de nascimento");
             }
+          
             return true;
         }
 
+        private void buttonCancelar_Click(object sender, EventArgs e)
+        {
+            LimparCampos();
+        }
+
+        private void buttonApagar_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Selecione um endereço para remover");
+
+                return;
+            }
+
+            var reposta = MessageBox.Show("Deseja realmente apagar o endereço?", "Aviso",
+                MessageBoxButtons.YesNo);
+
+            if (reposta != DialogResult.Yes)
+            {
+                MessageBox.Show("Relaxa seu registro continua salvo");
+
+                return;
+            }
+
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+            var responsavel = responsavelServico.ObterPorCodigo(codigo);
+
+            responsavelServico.Apagar(responsavel);
+
+            PreecherDataGridViewComResponsaveis();
+
+            dataGridView1.ClearSelection();
+        }
     }
 }
