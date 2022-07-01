@@ -181,12 +181,14 @@
             // 
             // dateTimePickerDataNascimento
             // 
+            this.dateTimePickerDataNascimento.CustomFormat = "99/99/9999";
             this.dateTimePickerDataNascimento.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.dateTimePickerDataNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dateTimePickerDataNascimento.Location = new System.Drawing.Point(12, 152);
             this.dateTimePickerDataNascimento.Name = "dateTimePickerDataNascimento";
-            this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(200, 29);
+            this.dateTimePickerDataNascimento.Size = new System.Drawing.Size(145, 29);
             this.dateTimePickerDataNascimento.TabIndex = 14;
+            this.dateTimePickerDataNascimento.Value = new System.DateTime(2022, 1, 7, 0, 0, 0, 0);
             // 
             // labelDataNascimento
             // 
@@ -200,7 +202,7 @@
             // labelCep
             // 
             this.labelCep.AutoSize = true;
-            this.labelCep.Location = new System.Drawing.Point(237, 134);
+            this.labelCep.Location = new System.Drawing.Point(169, 137);
             this.labelCep.Name = "labelCep";
             this.labelCep.Size = new System.Drawing.Size(28, 15);
             this.labelCep.TabIndex = 16;
@@ -209,10 +211,10 @@
             // maskedTextBoxCep
             // 
             this.maskedTextBoxCep.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.maskedTextBoxCep.Location = new System.Drawing.Point(237, 152);
+            this.maskedTextBoxCep.Location = new System.Drawing.Point(169, 155);
             this.maskedTextBoxCep.Mask = "99.999.999";
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
-            this.maskedTextBoxCep.Size = new System.Drawing.Size(167, 29);
+            this.maskedTextBoxCep.Size = new System.Drawing.Size(235, 29);
             this.maskedTextBoxCep.TabIndex = 17;
             this.maskedTextBoxCep.Leave += new System.EventHandler(this.maskedTextBoxCep_Leave);
             // 
@@ -483,6 +485,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(991, 624);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBoxNomePet);

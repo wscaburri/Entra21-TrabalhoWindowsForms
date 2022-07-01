@@ -46,7 +46,30 @@ namespace Entra21_TrabalhoWindowsForms
 
         private void buttonEditar_Click(object sender, EventArgs e)
         {
-            var linha selecionada =
+            ApresentarDadosParaEdicao();
+        }
+
+        public void ApresentarDadosParaEdicao()
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+
+                MessageBox.Show("Selecione um responsável para editar");
+
+                return;
+            }
+
+            // Obter a linha que o usuário selecionou
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            // Obter o código do endereço que o usuário selecionou
+            var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+            // Obter o endereço escolhido
+            var responsavel = responsavelServico.ObterPorCodigo(codigo);
+
+            // Apresentar os dados do endereço na tela para edição
+            maskedTextBoxCep.Text = responsavel.Cep;
+            textBoxEndereco.Text = responsavel.Endereco;
+            comboBoxNomePet.SelectedItem = responsavel.Pet.Nome;
         }
 
         private void buttonSalvar_Click(object sender, EventArgs e)
@@ -59,7 +82,7 @@ namespace Entra21_TrabalhoWindowsForms
             var cidade = Convert.ToString(comboBoxCidade.SelectedItem);
             var bairro = textBoxBairro.Text;
             var endereco = textBoxEndereco.Text;
-            var numero = textBoxNumero.Text;
+            var numeroResidencia = textBoxNumero.Text;
             var complemento = textBoxComplemento.Text;
             var localDeTrabalho = textBoxLocalDeTrabalho.Text;
             var observacao = textBoxObservacaoLocalDeTrabalho;
@@ -68,6 +91,7 @@ namespace Entra21_TrabalhoWindowsForms
             var telefone = maskedTextBoxTelefone.Text;
             var celular = maskedTextBoxCelular.Text;
             var email = textBoxEmail.Text;
+            var nomePet = comboBoxNomePet.Text;
 
 
 
@@ -78,12 +102,46 @@ namespace Entra21_TrabalhoWindowsForms
             }
 
             if (dataGridView1.SelectedRows.Count == 0)
-            {
+                CadastrarResponsavel(nomeCompleto, cpf, dataDeCadastro);
+            else
+                EditarResponsavel( nomeCompleto,  tipo,  cpf,
+             cep,  cidade,  bairro,  endereco,
+             numeroResidencia,  complemento,
+             localDeTrabalho,  telefone,  celular,  email, nomePet);
 
-            }
 
 
+        }
+        private void EditarResponsavel(string nomeCompleto, string tipo, string cpf, 
+            string cep, string cidade, string bairro, string endereco,
+            string numeroResidencia, string complemento,
+            string localDeTrabalho, string telefone, string celular, string email, string codigoAnimal)
+        {
+            // Obter linha selecionada
+            var linhaSelecionada = dataGridView1.SelectedRows[0];
+            // Obter código ques está na coluna oculta do DataGridView
+            var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
 
+            // Construir o objeto co os dados da tela
+            var responsavel = new Responsavel();
+            responsavel.Codigo = codigoSelecionado;
+            responsavel.NomeCompleto = nomeCompleto;
+            responsavel.Tipo = tipo;
+            responsavel.Cpf = cpf;
+            responsavel.Cep = cep;
+            responsavel.Cidade = cidade;
+            responsavel.Bairro = bairro;
+            responsavel.Endereco = endereco;
+            responsavel.NumeroResidencia = numeroResidencia;
+            responsavel.Complemento = complemento;
+            responsavel.LocalDeTrabalho = localDeTrabalho;
+            responsavel.Telefone = telefone;
+            responsavel.Celular = celular;
+            responsavel.Email = email;
+            responsavel.Pet = animalServico.ObterPorCodigo(Convert.ToInt32(codigoAnimal));
+
+            // Atualizar o dado na lista de endereços e salvar o dado atualizado no arquivo JSON
+            responsavelServico.Editar(responsavel);
         }
         private void PreecherDataGridViewComResponsaveis()
         {
@@ -170,7 +228,7 @@ namespace Entra21_TrabalhoWindowsForms
         {
             ObterDadosCep();
         }
-        public bool ValidarDados(string nomeCompleto, string tipo, string cpf, DateTime dataNascimento,
+        public bool ValidarDados(string nomeCompleto, string tipo, string cpf,
             string cep, string cidade, string bairro, string enderecoCompleto,
             string numeroResidencia, string complemento,
             string localDeTrabalho, string telefone, string celular)
@@ -214,6 +272,11 @@ namespace Entra21_TrabalhoWindowsForms
                 comboBoxNomePet.DroppedDown = true;
 
                 return false;
+           }
+            var dataAtual = DateTime.Now;
+            if (dateTimePickerDataNascimento.Value == dataAtual )
+            {
+
             }
             return true;
         }
