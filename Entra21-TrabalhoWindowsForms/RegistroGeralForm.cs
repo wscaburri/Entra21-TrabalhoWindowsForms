@@ -13,7 +13,7 @@ namespace Entra21_TrabalhoWindowsForms
     public partial class RegistroGeralForm : Form
     {
         private AgendamentoConsultaForm agendamentoConsultaForm;
-        private AgendamentoConsultaServico 
+        private AgendamentoConsultaServico agendamentoConsultaServico;
         public RegistroGeralForm()
         {
             InitializeComponent();
@@ -25,13 +25,13 @@ namespace Entra21_TrabalhoWindowsForms
         {
             var agendamentos = agendamentoConsultaServico.ObterTodos();
 
-            dataGridViewAgendamentoConsulta.Rows.Clear();
+            dataGridView1.Rows.Clear();
 
             for (var i = 0; i < agendamentos.Count; i++)
             {
                 var agendamento = agendamentos[i];
 
-                dataGridViewAgendamentoConsulta.Rows.Add(new object[]
+                dataGridView1.Rows.Add(new object[]
                 {
                         agendamento.Codigo,
                         agendamento.DataConsulta.ToString("dd/MM/yyyy"),
@@ -42,12 +42,12 @@ namespace Entra21_TrabalhoWindowsForms
                 });
             }
 
-            dataGridViewAgendamentoConsulta.ClearSelection();
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
         }
     }
 }

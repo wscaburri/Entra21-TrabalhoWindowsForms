@@ -56,12 +56,16 @@
             this.richTextBoxObservacoes = new System.Windows.Forms.RichTextBox();
             this.labelObservacoes = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnEspecie = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDataDeCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(109, 395);
+            this.buttonSalvar.Location = new System.Drawing.Point(12, 395);
             this.buttonSalvar.Name = "buttonSalvar";
             this.buttonSalvar.Size = new System.Drawing.Size(88, 43);
             this.buttonSalvar.TabIndex = 0;
@@ -71,7 +75,7 @@
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(606, 395);
+            this.buttonEditar.Location = new System.Drawing.Point(826, 395);
             this.buttonEditar.Name = "buttonEditar";
             this.buttonEditar.Size = new System.Drawing.Size(88, 43);
             this.buttonEditar.TabIndex = 2;
@@ -81,7 +85,7 @@
             // 
             // textBoxNome
             // 
-            this.textBoxNome.Location = new System.Drawing.Point(222, 30);
+            this.textBoxNome.Location = new System.Drawing.Point(200, 27);
             this.textBoxNome.Name = "textBoxNome";
             this.textBoxNome.Size = new System.Drawing.Size(270, 23);
             this.textBoxNome.TabIndex = 5;
@@ -90,7 +94,7 @@
             // 
             this.labelCadastro.AutoSize = true;
             this.labelCadastro.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelCadastro.Location = new System.Drawing.Point(515, 9);
+            this.labelCadastro.Location = new System.Drawing.Point(492, 12);
             this.labelCadastro.Name = "labelCadastro";
             this.labelCadastro.Size = new System.Drawing.Size(100, 15);
             this.labelCadastro.TabIndex = 7;
@@ -99,17 +103,16 @@
             // dateTimePickerDataDeCadastro
             // 
             this.dateTimePickerDataDeCadastro.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataDeCadastro.Location = new System.Drawing.Point(515, 27);
+            this.dateTimePickerDataDeCadastro.Location = new System.Drawing.Point(492, 27);
             this.dateTimePickerDataDeCadastro.Name = "dateTimePickerDataDeCadastro";
             this.dateTimePickerDataDeCadastro.Size = new System.Drawing.Size(113, 23);
             this.dateTimePickerDataDeCadastro.TabIndex = 8;
-            this.dateTimePickerDataDeCadastro.ValueChanged += new System.EventHandler(this.dateTimePickerDataDeCadastro_ValueChanged);
             // 
             // labelNome
             // 
             this.labelNome.AutoSize = true;
             this.labelNome.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelNome.Location = new System.Drawing.Point(222, 12);
+            this.labelNome.Location = new System.Drawing.Point(200, 9);
             this.labelNome.Name = "labelNome";
             this.labelNome.Size = new System.Drawing.Size(95, 15);
             this.labelNome.TabIndex = 10;
@@ -119,7 +122,7 @@
             // 
             this.labelEspecie.AutoSize = true;
             this.labelEspecie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelEspecie.Location = new System.Drawing.Point(222, 67);
+            this.labelEspecie.Location = new System.Drawing.Point(200, 67);
             this.labelEspecie.Name = "labelEspecie";
             this.labelEspecie.Size = new System.Drawing.Size(49, 15);
             this.labelEspecie.TabIndex = 15;
@@ -129,7 +132,7 @@
             // 
             this.labelRaca.AutoSize = true;
             this.labelRaca.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelRaca.Location = new System.Drawing.Point(338, 133);
+            this.labelRaca.Location = new System.Drawing.Point(320, 133);
             this.labelRaca.Name = "labelRaca";
             this.labelRaca.Size = new System.Drawing.Size(35, 15);
             this.labelRaca.TabIndex = 16;
@@ -139,7 +142,7 @@
             // 
             this.labelPelagem.AutoSize = true;
             this.labelPelagem.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelPelagem.Location = new System.Drawing.Point(384, 67);
+            this.labelPelagem.Location = new System.Drawing.Point(367, 70);
             this.labelPelagem.Name = "labelPelagem";
             this.labelPelagem.Size = new System.Drawing.Size(86, 15);
             this.labelPelagem.TabIndex = 17;
@@ -147,14 +150,14 @@
             // 
             // textBoxPelagem
             // 
-            this.textBoxPelagem.Location = new System.Drawing.Point(360, 88);
+            this.textBoxPelagem.Location = new System.Drawing.Point(338, 88);
             this.textBoxPelagem.Name = "textBoxPelagem";
             this.textBoxPelagem.Size = new System.Drawing.Size(132, 23);
             this.textBoxPelagem.TabIndex = 18;
             // 
             // textBoxPeso
             // 
-            this.textBoxPeso.Location = new System.Drawing.Point(222, 215);
+            this.textBoxPeso.Location = new System.Drawing.Point(200, 217);
             this.textBoxPeso.Name = "textBoxPeso";
             this.textBoxPeso.Size = new System.Drawing.Size(270, 23);
             this.textBoxPeso.TabIndex = 19;
@@ -163,7 +166,7 @@
             // 
             this.labelDoencas.AutoSize = true;
             this.labelDoencas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelDoencas.Location = new System.Drawing.Point(222, 256);
+            this.labelDoencas.Location = new System.Drawing.Point(200, 256);
             this.labelDoencas.Name = "labelDoencas";
             this.labelDoencas.Size = new System.Drawing.Size(55, 15);
             this.labelDoencas.TabIndex = 20;
@@ -173,7 +176,7 @@
             // 
             this.labelPeso.AutoSize = true;
             this.labelPeso.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelPeso.Location = new System.Drawing.Point(338, 194);
+            this.labelPeso.Location = new System.Drawing.Point(320, 199);
             this.labelPeso.Name = "labelPeso";
             this.labelPeso.Size = new System.Drawing.Size(35, 15);
             this.labelPeso.TabIndex = 23;
@@ -183,7 +186,7 @@
             // 
             this.labelDataDeNascimento.AutoSize = true;
             this.labelDataDeNascimento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelDataDeNascimento.Location = new System.Drawing.Point(514, 67);
+            this.labelDataDeNascimento.Location = new System.Drawing.Point(488, 70);
             this.labelDataDeNascimento.Name = "labelDataDeNascimento";
             this.labelDataDeNascimento.Size = new System.Drawing.Size(117, 15);
             this.labelDataDeNascimento.TabIndex = 25;
@@ -192,21 +195,21 @@
             // dateTimePickerDataDeNascimento
             // 
             this.dateTimePickerDataDeNascimento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDataDeNascimento.Location = new System.Drawing.Point(514, 85);
+            this.dateTimePickerDataDeNascimento.Location = new System.Drawing.Point(492, 88);
             this.dateTimePickerDataDeNascimento.Name = "dateTimePickerDataDeNascimento";
             this.dateTimePickerDataDeNascimento.Size = new System.Drawing.Size(113, 23);
             this.dateTimePickerDataDeNascimento.TabIndex = 27;
             // 
             // textBoxDoencas
             // 
-            this.textBoxDoencas.Location = new System.Drawing.Point(222, 274);
+            this.textBoxDoencas.Location = new System.Drawing.Point(200, 274);
             this.textBoxDoencas.Name = "textBoxDoencas";
             this.textBoxDoencas.Size = new System.Drawing.Size(270, 23);
             this.textBoxDoencas.TabIndex = 28;
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(700, 395);
+            this.buttonApagar.Location = new System.Drawing.Point(930, 395);
             this.buttonApagar.Name = "buttonApagar";
             this.buttonApagar.Size = new System.Drawing.Size(88, 43);
             this.buttonApagar.TabIndex = 29;
@@ -217,7 +220,7 @@
             // 
             this.radioButtonFemea.AutoSize = true;
             this.radioButtonFemea.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.radioButtonFemea.Location = new System.Drawing.Point(505, 156);
+            this.radioButtonFemea.Location = new System.Drawing.Point(484, 160);
             this.radioButtonFemea.Name = "radioButtonFemea";
             this.radioButtonFemea.Size = new System.Drawing.Size(63, 19);
             this.radioButtonFemea.TabIndex = 30;
@@ -229,29 +232,28 @@
             // 
             this.radioButtonMacho.AutoSize = true;
             this.radioButtonMacho.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.radioButtonMacho.Location = new System.Drawing.Point(505, 181);
+            this.radioButtonMacho.Location = new System.Drawing.Point(484, 181);
             this.radioButtonMacho.Name = "radioButtonMacho";
             this.radioButtonMacho.Size = new System.Drawing.Size(65, 19);
             this.radioButtonMacho.TabIndex = 31;
             this.radioButtonMacho.TabStop = true;
             this.radioButtonMacho.Text = "Macho.";
             this.radioButtonMacho.UseVisualStyleBackColor = false;
-            this.radioButtonMacho.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
             // checkBoxVacinado
             // 
             this.checkBoxVacinado.AutoSize = true;
             this.checkBoxVacinado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.checkBoxVacinado.Location = new System.Drawing.Point(505, 219);
+            this.checkBoxVacinado.Location = new System.Drawing.Point(484, 274);
             this.checkBoxVacinado.Name = "checkBoxVacinado";
-            this.checkBoxVacinado.Size = new System.Drawing.Size(77, 19);
+            this.checkBoxVacinado.Size = new System.Drawing.Size(78, 19);
             this.checkBoxVacinado.TabIndex = 32;
             this.checkBoxVacinado.Text = "Vacinado.";
             this.checkBoxVacinado.UseVisualStyleBackColor = false;
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(15, 395);
+            this.buttonCancelar.Location = new System.Drawing.Point(118, 395);
             this.buttonCancelar.Name = "buttonCancelar";
             this.buttonCancelar.Size = new System.Drawing.Size(88, 43);
             this.buttonCancelar.TabIndex = 33;
@@ -262,7 +264,10 @@
             // comboBoxEspecie
             // 
             this.comboBoxEspecie.FormattingEnabled = true;
-            this.comboBoxEspecie.Location = new System.Drawing.Point(222, 88);
+            this.comboBoxEspecie.Items.AddRange(new object[] {
+            "Gato",
+            "Cachorro"});
+            this.comboBoxEspecie.Location = new System.Drawing.Point(200, 88);
             this.comboBoxEspecie.Name = "comboBoxEspecie";
             this.comboBoxEspecie.Size = new System.Drawing.Size(132, 23);
             this.comboBoxEspecie.TabIndex = 34;
@@ -270,7 +275,7 @@
             // comboBoxRaca
             // 
             this.comboBoxRaca.FormattingEnabled = true;
-            this.comboBoxRaca.Location = new System.Drawing.Point(222, 156);
+            this.comboBoxRaca.Location = new System.Drawing.Point(200, 156);
             this.comboBoxRaca.Name = "comboBoxRaca";
             this.comboBoxRaca.Size = new System.Drawing.Size(270, 23);
             this.comboBoxRaca.TabIndex = 35;
@@ -279,27 +284,25 @@
             // 
             this.labelSexo.AutoSize = true;
             this.labelSexo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelSexo.Location = new System.Drawing.Point(515, 133);
+            this.labelSexo.Location = new System.Drawing.Point(501, 142);
             this.labelSexo.Name = "labelSexo";
-            this.labelSexo.Size = new System.Drawing.Size(35, 15);
+            this.labelSexo.Size = new System.Drawing.Size(34, 15);
             this.labelSexo.TabIndex = 37;
             this.labelSexo.Text = "Sexo:";
-            this.labelSexo.Click += new System.EventHandler(this.label11_Click);
             // 
             // richTextBoxObservacoes
             // 
-            this.richTextBoxObservacoes.Location = new System.Drawing.Point(568, 274);
+            this.richTextBoxObservacoes.Location = new System.Drawing.Point(680, 290);
             this.richTextBoxObservacoes.Name = "richTextBoxObservacoes";
             this.richTextBoxObservacoes.Size = new System.Drawing.Size(283, 67);
             this.richTextBoxObservacoes.TabIndex = 38;
             this.richTextBoxObservacoes.Text = "";
-            this.richTextBoxObservacoes.TextChanged += new System.EventHandler(this.richTextBoxObservacoes_TextChanged);
             // 
             // labelObservacoes
             // 
             this.labelObservacoes.AutoSize = true;
             this.labelObservacoes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.labelObservacoes.Location = new System.Drawing.Point(680, 256);
+            this.labelObservacoes.Location = new System.Drawing.Point(772, 272);
             this.labelObservacoes.Name = "labelObservacoes";
             this.labelObservacoes.Size = new System.Drawing.Size(77, 15);
             this.labelObservacoes.TabIndex = 39;
@@ -307,20 +310,52 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(637, 12);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnNome,
+            this.ColumnCodigo,
+            this.ColumnEspecie,
+            this.ColumnDataDeCadastro});
+            this.dataGridView1.Location = new System.Drawing.Point(611, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(437, 228);
             this.dataGridView1.TabIndex = 40;
             // 
-            // CadastroPets
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Codigo";
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            // 
+            // ColumnEspecie
+            // 
+            this.ColumnEspecie.HeaderText = "Espécie";
+            this.ColumnEspecie.Name = "ColumnEspecie";
+            this.ColumnEspecie.ReadOnly = true;
+            // 
+            // ColumnDataDeCadastro
+            // 
+            this.ColumnDataDeCadastro.HeaderText = "Data de Cadastro";
+            this.ColumnDataDeCadastro.Name = "ColumnDataDeCadastro";
+            this.ColumnDataDeCadastro.ReadOnly = true;
+            // 
+            // CadastroAnimal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(878, 450);
+            this.ClientSize = new System.Drawing.Size(1050, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelObservacoes);
             this.Controls.Add(this.richTextBoxObservacoes);
@@ -348,7 +383,7 @@
             this.Controls.Add(this.textBoxNome);
             this.Controls.Add(this.buttonEditar);
             this.Controls.Add(this.buttonSalvar);
-            this.Name = "CadastroPets";
+            this.Name = "CadastroAnimal";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Pets";
             this.Load += new System.EventHandler(this.CadastroPets_Load);
@@ -387,5 +422,9 @@
         private RichTextBox richTextBoxObservacoes;
         private Label labelObservacoes;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ColumnNome;
+        private DataGridViewTextBoxColumn ColumnCodigo;
+        private DataGridViewTextBoxColumn ColumnEspecie;
+        private DataGridViewTextBoxColumn ColumnDataDeCadastro;
     }
 }

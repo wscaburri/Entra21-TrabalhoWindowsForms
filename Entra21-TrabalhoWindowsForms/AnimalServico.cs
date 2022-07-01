@@ -5,6 +5,7 @@ namespace Entra21_TrabalhoWindowsForms
     internal class AnimalServico
     {
         private List<Animal> animais;
+       
 
         public AnimalServico()
         {
@@ -44,6 +45,17 @@ namespace Entra21_TrabalhoWindowsForms
             }
             return null;
         }
+        public int ObterPorUltimoCodigo()
+        {
+            var ultimoCodigo = 0;
+            for (int i = 0; i < animais.Count; i++)
+            {
+                var animal= animais[i];
+
+                ultimoCodigo = animal.Codigo;
+            }
+            return ultimoCodigo;
+        }
 
         public void Editar(Animal animalParaEditar)
         {
@@ -57,7 +69,6 @@ namespace Entra21_TrabalhoWindowsForms
             animal.Raca = animalParaEditar.Raca;
             animal.Doencas = animalParaEditar.Doencas;
             animal.Vacinas = animalParaEditar.Vacinas;
-            animal.Alergias = animalParaEditar.Alergias;
             animal.Sexo = animalParaEditar.Sexo;
             animal.Especie = animalParaEditar.Especie;
             //animal.TipoRacao = animalParaEditar.TipoRacao;
@@ -109,5 +120,6 @@ namespace Entra21_TrabalhoWindowsForms
             animais = JsonConvert.DeserializeObject<List<Animal>>(animaisJson);
         }
         
+
     }
 }

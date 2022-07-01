@@ -3,6 +3,7 @@
     public partial class CadastroAnimal : Form
     {
         private AnimalServico animalServico;
+        private Animal objAnimal;
 
         //private Validacoes validacoes;
         public CadastroAnimal()
@@ -11,33 +12,16 @@
 
             animalServico = new AnimalServico();
 
-            //      ObterDados();
+            
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void textBox2_TextAlignChanged(object sender, EventArgs e)
-        {
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void radioButton2_CheckedChanged(object sender, EventArgs e)
-        {
-        }
 
         private void CadastroPets_Load(object sender, EventArgs e)
         {
+            PreencherDataGridViewComAnimais();
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-        }
-
+      
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             var nome = textBoxNome.Text;
@@ -51,12 +35,12 @@
             var raca = Convert.ToString(comboBoxRaca.SelectedItem);
             var observacoes = richTextBoxObservacoes.Text;
 
-            var dadosValidos = ValidarDados(nome, nascimento, pelagem, peso, doenca, vacinado, especie, raca);
+            var dadosValidos = ValidarDados(nome, pelagem, peso, vacinado, especie, raca);
 
             LimparCampos();
         }
 
-        public bool ValidarDados(string nome, DateTime nascimento, string pelagem, string peso, string doenca, bool vacinado, string especie, string raca)
+        public bool ValidarDados(string nome, string pelagem, string peso, bool vacinado, string especie, string raca)
         {
             if (nome.Trim().Length < 1)
             {
@@ -66,16 +50,14 @@
             if (pelagem.Trim().Length < 3)
             {
                 MessageBox.Show("Pelagem inexistente.");
+                textBoxPelagem.Focus();
                 return false;
             }
-            if (doenca.Trim().Length < 2)
+            var dataAtual = DateTime.Now;
+            if (dateTimePickerDataDeNascimento.Value == dataAtual)
             {
-                MessageBox.Show("Doença inválida, digite novamente.");
-                return false;
-            }
-            if (nascimento.Date.Year == nascimento.Date.Year)
-            {
-                MessageBox.Show("Cadastro nulo, escolha uma data válida");
+                MessageBox.Show("Preencha a data de nascimento");
+                dateTimePickerDataDeNascimento.Focus();
                 return false;
             }
             if (comboBoxEspecie.SelectedIndex == -1)
@@ -97,6 +79,7 @@
             if (peso.Trim().Length < 0)
             {
                 MessageBox.Show("Digite o peso.");
+                textBoxPeso.Focus();
                 return false;
             }
 
@@ -107,11 +90,6 @@
         {
             LimparCampos();
         }
-
-        private void dateTimePickerDataDeCadastro_ValueChanged(object sender, EventArgs e)
-        {
-        }
-
         private void LimparCampos()
         {
             textBoxNome.Text = "";
@@ -132,13 +110,68 @@
 
         private void ApresentarDadosParaEditar()
         {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+
+                MessageBox.Show("Selecione um endereço para editar");
+
+                return;
+            }
             var linhaSelecionada = dataGridView1.SelectedRows[0];
             var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
             var nome = animalServico.ObterPorCodigo(codigo);
         }
-
-        private void richTextBoxObservacoes_TextChanged(object sender, EventArgs e)
+        public void PreencherDataGridViewComAnimais()
         {
+            var animais = animalServico.ObterTodos();
+
+            dataGridView1.Rows.Clear();
+
+            for (int i = 0; i < animais.Count; i++)
+            {
+                var animal= animais[i];
+
+                dataGridView1.Rows.Add(new object[]
+                {
+                    animal.Codigo,
+                    animal.Nome,
+                    animal.Especie,
+                    animal.DataDeCadastro,
+
+                });
+
+            }
+            dataGridView1.Rows.Clear();
+        }
+       public void CadastrarAnimais(string nomeAnimal, string especie, string raca, string pelagem, string sexo, double peso, string doencas, string dataCadastro, string idade, string alergias, bool vacina )
+        {
+            var animal = new Animal();
+            animal.Codigo = animalServico.ObterPorUltimoCodigo() + 1;
+            animal.Nome = nomeAnimal;
+            animal.Especie = especie;
+            animal.Raca = raca;
+            animal.Pelagem = pelagem;
+            animal.Sexo = sexo;
+            animal.Peso = peso;
+            animal.Doencas = doencas;
+            animal.DataDeCadastro = Convert.ToDateTime(dataCadastro);
+            animal.Idade = Convert.ToDateTime(idade);
+            animal.Vacinas = vacina;
+
+           
+            animalServico.Adicionar(animal);
+        }
+
+        public void PreencherComboBoxRaça()
+        {
+            if (comboBoxEspecie.SelectedIndex == 1)
+            {
+                comboBoxRaca.Items.Add("Persa");
+            }
+            else
+            {
+                comboBoxRaca.Items.Add("Spitz Alemão");
+            }
         }
     }
 }
