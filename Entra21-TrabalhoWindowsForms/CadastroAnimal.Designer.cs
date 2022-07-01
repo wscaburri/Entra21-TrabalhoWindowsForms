@@ -56,8 +56,8 @@
             this.richTextBoxObservacoes = new System.Windows.Forms.RichTextBox();
             this.labelObservacoes = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNome = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnEspecie = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDataDeCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -275,6 +275,8 @@
             // comboBoxRaca
             // 
             this.comboBoxRaca.FormattingEnabled = true;
+            this.comboBoxRaca.Items.AddRange(new object[] {
+            "Persa"});
             this.comboBoxRaca.Location = new System.Drawing.Point(200, 156);
             this.comboBoxRaca.Name = "comboBoxRaca";
             this.comboBoxRaca.Size = new System.Drawing.Size(270, 23);
@@ -314,39 +316,46 @@
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnNome,
             this.ColumnCodigo,
+            this.ColumnNome,
             this.ColumnEspecie,
             this.ColumnDataDeCadastro});
             this.dataGridView1.Location = new System.Drawing.Point(611, 12);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(437, 228);
+            this.dataGridView1.Size = new System.Drawing.Size(460, 228);
             this.dataGridView1.TabIndex = 40;
-            // 
-            // ColumnNome
-            // 
-            this.ColumnNome.HeaderText = "Nome";
-            this.ColumnNome.Name = "ColumnNome";
-            this.ColumnNome.ReadOnly = true;
             // 
             // ColumnCodigo
             // 
             this.ColumnCodigo.HeaderText = "Codigo";
             this.ColumnCodigo.Name = "ColumnCodigo";
             this.ColumnCodigo.ReadOnly = true;
+            this.ColumnCodigo.Visible = false;
+            // 
+            // ColumnNome
+            // 
+            this.ColumnNome.HeaderText = "Nome";
+            this.ColumnNome.MinimumWidth = 150;
+            this.ColumnNome.Name = "ColumnNome";
+            this.ColumnNome.ReadOnly = true;
+            this.ColumnNome.Width = 150;
             // 
             // ColumnEspecie
             // 
             this.ColumnEspecie.HeaderText = "Espécie";
+            this.ColumnEspecie.MinimumWidth = 150;
             this.ColumnEspecie.Name = "ColumnEspecie";
             this.ColumnEspecie.ReadOnly = true;
+            this.ColumnEspecie.Width = 150;
             // 
             // ColumnDataDeCadastro
             // 
             this.ColumnDataDeCadastro.HeaderText = "Data de Cadastro";
+            this.ColumnDataDeCadastro.MinimumWidth = 120;
             this.ColumnDataDeCadastro.Name = "ColumnDataDeCadastro";
             this.ColumnDataDeCadastro.ReadOnly = true;
+            this.ColumnDataDeCadastro.Width = 120;
             // 
             // CadastroAnimal
             // 
@@ -355,7 +364,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1050, 450);
+            this.ClientSize = new System.Drawing.Size(1072, 450);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.labelObservacoes);
             this.Controls.Add(this.richTextBoxObservacoes);
@@ -422,8 +431,8 @@
         private RichTextBox richTextBoxObservacoes;
         private Label labelObservacoes;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn ColumnNome;
         private DataGridViewTextBoxColumn ColumnCodigo;
+        private DataGridViewTextBoxColumn ColumnNome;
         private DataGridViewTextBoxColumn ColumnEspecie;
         private DataGridViewTextBoxColumn ColumnDataDeCadastro;
     }

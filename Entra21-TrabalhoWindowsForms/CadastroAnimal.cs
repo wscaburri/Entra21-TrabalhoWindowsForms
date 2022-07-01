@@ -25,17 +25,28 @@
         private void buttonSalvar_Click(object sender, EventArgs e)
         {
             var nome = textBoxNome.Text;
-            var cadastro = dateTimePickerDataDeCadastro.Value;
-            var nascimento = dateTimePickerDataDeNascimento.Value;
+            var dataCadastro = Convert.ToString(dateTimePickerDataDeCadastro.Value);
+            var idade = Convert.ToString( dateTimePickerDataDeNascimento.Value);
+            var sexoMacho = radioButtonMacho.Text;
+            var sexoFemea = radioButtonFemea.Text;
             var pelagem = textBoxPelagem.Text;
             var peso = textBoxPeso.Text;
             var doenca = textBoxDoencas.Text;
             var vacinado = checkBoxVacinado.Checked;
             var especie = Convert.ToString(comboBoxEspecie.SelectedItem);
             var raca = Convert.ToString(comboBoxRaca.SelectedItem);
-            var observacoes = richTextBoxObservacoes.Text;
+           
 
             var dadosValidos = ValidarDados(nome, pelagem, peso, vacinado, especie, raca);
+            if (dadosValidos == false)
+            {
+                return;
+            }
+           
+           
+
+            PreencherDataGridViewComAnimais();
+
 
             LimparCampos();
         }
@@ -143,7 +154,8 @@
             }
             dataGridView1.Rows.Clear();
         }
-       public void CadastrarAnimais(string nomeAnimal, string especie, string raca, string pelagem, string sexo, double peso, string doencas, string dataCadastro, string idade, string alergias, bool vacina )
+       public void CadastrarAnimais(string nomeAnimal, string especie, string raca, string pelagem, string sexoMacho, string sexoFemea, 
+          string peso, string doencas, string dataCadastro, string idade, bool vacina )
         {
             var animal = new Animal();
             animal.Codigo = animalServico.ObterPorUltimoCodigo() + 1;
@@ -151,8 +163,9 @@
             animal.Especie = especie;
             animal.Raca = raca;
             animal.Pelagem = pelagem;
-            animal.Sexo = sexo;
-            animal.Peso = peso;
+            animal.Sexo = sexoMacho;
+            animal.Sexo = sexoFemea;
+            animal.Peso = Convert.ToDouble(peso);
             animal.Doencas = doencas;
             animal.DataDeCadastro = Convert.ToDateTime(dataCadastro);
             animal.Idade = Convert.ToDateTime(idade);
@@ -162,16 +175,33 @@
             animalServico.Adicionar(animal);
         }
 
-        public void PreencherComboBoxRaça()
-        {
-            if (comboBoxEspecie.SelectedIndex == 1)
+     
+            private void EditarAnimais(string nomeAnimal, string especie, string raca, string pelagem, string sexoMacho,string sexoFemea,
+           double peso, string doencas, string dataCadastro, string idade,  bool vacina)
             {
-                comboBoxRaca.Items.Add("Persa");
+                var linhaSelecionada = dataGridView1.SelectedRows[0];
+                var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
+
+
+                var animal = new Animal();
+                animal.Codigo = codigoSelecionado;
+                animal.Nome = nomeAnimal;
+                animal.Idade = Convert.ToDateTime(idade);
+                animal.Especie = especie;
+                animal.Raca = raca;
+                animal.Pelagem = pelagem;
+                animal.Sexo = sexoMacho;
+		        animal.Sexo = sexoFemea;
+                animal.Peso = Convert.ToDouble(peso);
+                animal.Doencas = doencas;
+                animal.DataDeCadastro = Convert.ToDateTime(dataCadastro);
+                animal.Vacinas = vacina;
+           
+                
+
+
+                animalServico.Editar(animal);
             }
-            else
-            {
-                comboBoxRaca.Items.Add("Spitz Alemão");
-            }
-        }
+        
     }
 }
