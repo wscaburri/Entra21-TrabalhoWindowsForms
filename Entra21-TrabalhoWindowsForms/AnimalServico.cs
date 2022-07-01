@@ -10,7 +10,7 @@ namespace Entra21_TrabalhoWindowsForms
         {
             animais = new List<Animal>();
 
-            //LerArquivo();
+            LerArquivo();
         }
 
         public List<Animal> ObterTodos()
@@ -86,6 +86,12 @@ namespace Entra21_TrabalhoWindowsForms
                 }
             }
         }
+        public void Adicionar(Animal animal)
+        {
+            animais.Add(animal);
+
+            SalvarArquivo();
+        }
 
         private void SalvarArquivo()
         {
@@ -102,5 +108,6 @@ namespace Entra21_TrabalhoWindowsForms
 
             animais = JsonConvert.DeserializeObject<List<Animal>>(animaisJson);
         }
+        
     }
 }
