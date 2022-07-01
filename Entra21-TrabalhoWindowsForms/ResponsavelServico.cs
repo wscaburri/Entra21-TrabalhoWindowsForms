@@ -16,6 +16,13 @@ namespace Entra21_TrabalhoWindowsForms
             responsaveis = new List<Responsavel>();
         }
 
+        public void Adicionar(Responsavel responsavel)
+        {
+            responsaveis.Add(responsavel);
+
+            SalvarArquivo();
+        }
+
         private void LerArquivo()
         {
             if (File.Exists("responsaveis.json") == false)

@@ -43,7 +43,7 @@
             this.buttonRegistroGeral.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.buttonRegistroGeral.Location = new System.Drawing.Point(12, 259);
             this.buttonRegistroGeral.Name = "buttonRegistroGeral";
-            this.buttonRegistroGeral.Size = new System.Drawing.Size(296, 386);
+            this.buttonRegistroGeral.Size = new System.Drawing.Size(203, 298);
             this.buttonRegistroGeral.TabIndex = 0;
             this.buttonRegistroGeral.Text = "Registro Geral de Clientes";
             this.buttonRegistroGeral.UseVisualStyleBackColor = true;
@@ -52,9 +52,9 @@
             // buttonCadastroReponsavel
             // 
             this.buttonCadastroReponsavel.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCadastroReponsavel.Location = new System.Drawing.Point(314, 259);
+            this.buttonCadastroReponsavel.Location = new System.Drawing.Point(277, 256);
             this.buttonCadastroReponsavel.Name = "buttonCadastroReponsavel";
-            this.buttonCadastroReponsavel.Size = new System.Drawing.Size(303, 386);
+            this.buttonCadastroReponsavel.Size = new System.Drawing.Size(203, 301);
             this.buttonCadastroReponsavel.TabIndex = 1;
             this.buttonCadastroReponsavel.Text = "Cadastro Responsável";
             this.buttonCadastroReponsavel.UseVisualStyleBackColor = true;
@@ -63,9 +63,9 @@
             // buttonCadastroPet
             // 
             this.buttonCadastroPet.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCadastroPet.Location = new System.Drawing.Point(919, 259);
+            this.buttonCadastroPet.Location = new System.Drawing.Point(793, 259);
             this.buttonCadastroPet.Name = "buttonCadastroPet";
-            this.buttonCadastroPet.Size = new System.Drawing.Size(306, 386);
+            this.buttonCadastroPet.Size = new System.Drawing.Size(242, 298);
             this.buttonCadastroPet.TabIndex = 2;
             this.buttonCadastroPet.Text = "Cadastro Pet";
             this.buttonCadastroPet.UseVisualStyleBackColor = true;
@@ -73,9 +73,9 @@
             // buttonCadsatroClinicoGeral
             // 
             this.buttonCadsatroClinicoGeral.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonCadsatroClinicoGeral.Location = new System.Drawing.Point(623, 259);
+            this.buttonCadsatroClinicoGeral.Location = new System.Drawing.Point(538, 259);
             this.buttonCadsatroClinicoGeral.Name = "buttonCadsatroClinicoGeral";
-            this.buttonCadsatroClinicoGeral.Size = new System.Drawing.Size(290, 386);
+            this.buttonCadsatroClinicoGeral.Size = new System.Drawing.Size(224, 298);
             this.buttonCadsatroClinicoGeral.TabIndex = 3;
             this.buttonCadsatroClinicoGeral.Text = "Cadastro  Clinico Geral";
             this.buttonCadsatroClinicoGeral.UseVisualStyleBackColor = true;
@@ -83,9 +83,9 @@
             // buttonMarcarHorario
             // 
             this.buttonMarcarHorario.Font = new System.Drawing.Font("Perpetua Titling MT", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.buttonMarcarHorario.Location = new System.Drawing.Point(1231, 259);
+            this.buttonMarcarHorario.Location = new System.Drawing.Point(1057, 259);
             this.buttonMarcarHorario.Name = "buttonMarcarHorario";
-            this.buttonMarcarHorario.Size = new System.Drawing.Size(284, 386);
+            this.buttonMarcarHorario.Size = new System.Drawing.Size(231, 298);
             this.buttonMarcarHorario.TabIndex = 4;
             this.buttonMarcarHorario.Text = "Marcar Horário de Consulta";
             this.buttonMarcarHorario.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.labelBoasVindas.Font = new System.Drawing.Font("Rockwell", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelBoasVindas.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.labelBoasVindas.LiveSetting = System.Windows.Forms.Automation.AutomationLiveSetting.Assertive;
-            this.labelBoasVindas.Location = new System.Drawing.Point(671, 25);
+            this.labelBoasVindas.Location = new System.Drawing.Point(442, 29);
             this.labelBoasVindas.Name = "labelBoasVindas";
             this.labelBoasVindas.Size = new System.Drawing.Size(441, 54);
             this.labelBoasVindas.TabIndex = 6;
@@ -119,7 +119,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.ClientSize = new System.Drawing.Size(1326, 625);
             this.Controls.Add(this.labelBoasVindas);
             this.Controls.Add(this.buttonCadastroRemedios);
             this.Controls.Add(this.buttonMarcarHorario);

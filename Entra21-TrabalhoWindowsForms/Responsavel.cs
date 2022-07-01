@@ -13,17 +13,18 @@ namespace Entra21_TrabalhoWindowsForms
         public string NomeCompleto;
         public DateTime DataNascimento;
         public string Cpf;
-        public double Cep;
+        public string Cep;
         public string Endereco;
-        public double NumeroResidencia;
+        public string NumeroResidencia;
         public string Complemento;
         public string Cidade;
         public string Bairro;
         public string LocalDeTrabalho;
         public DateTime DataDeCadastro;
-        public double Telefone;
-        public double Celular;
+        public string Telefone;
+        public string Celular;
         public string Email;
+        public Animal Pet;
 
         public bool ValidarCpf(string cpf)
         {

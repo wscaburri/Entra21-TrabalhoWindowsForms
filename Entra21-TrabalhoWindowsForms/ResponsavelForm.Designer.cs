@@ -68,14 +68,18 @@
             this.labelNomePet = new System.Windows.Forms.Label();
             this.comboBoxNomePet = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ColumnCodigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNomeCompleto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCpf = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnDataCadastro = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonEditar
             // 
-            this.buttonEditar.Location = new System.Drawing.Point(257, 571);
+            this.buttonEditar.Location = new System.Drawing.Point(237, 562);
             this.buttonEditar.Name = "buttonEditar";
-            this.buttonEditar.Size = new System.Drawing.Size(117, 58);
+            this.buttonEditar.Size = new System.Drawing.Size(99, 58);
             this.buttonEditar.TabIndex = 0;
             this.buttonEditar.Text = "Editar";
             this.buttonEditar.UseVisualStyleBackColor = true;
@@ -83,27 +87,27 @@
             // 
             // buttonCancelar
             // 
-            this.buttonCancelar.Location = new System.Drawing.Point(380, 571);
+            this.buttonCancelar.Location = new System.Drawing.Point(352, 562);
             this.buttonCancelar.Name = "buttonCancelar";
-            this.buttonCancelar.Size = new System.Drawing.Size(116, 58);
+            this.buttonCancelar.Size = new System.Drawing.Size(94, 58);
             this.buttonCancelar.TabIndex = 1;
             this.buttonCancelar.Text = "Cancelar";
             this.buttonCancelar.UseVisualStyleBackColor = true;
             // 
             // buttonApagar
             // 
-            this.buttonApagar.Location = new System.Drawing.Point(128, 571);
+            this.buttonApagar.Location = new System.Drawing.Point(118, 562);
             this.buttonApagar.Name = "buttonApagar";
-            this.buttonApagar.Size = new System.Drawing.Size(123, 58);
+            this.buttonApagar.Size = new System.Drawing.Size(94, 58);
             this.buttonApagar.TabIndex = 2;
             this.buttonApagar.Text = "Apagar";
             this.buttonApagar.UseVisualStyleBackColor = true;
             // 
             // buttonSalvar
             // 
-            this.buttonSalvar.Location = new System.Drawing.Point(11, 571);
+            this.buttonSalvar.Location = new System.Drawing.Point(1, 562);
             this.buttonSalvar.Name = "buttonSalvar";
-            this.buttonSalvar.Size = new System.Drawing.Size(111, 58);
+            this.buttonSalvar.Size = new System.Drawing.Size(102, 58);
             this.buttonSalvar.TabIndex = 3;
             this.buttonSalvar.Text = "Salvar";
             this.buttonSalvar.UseVisualStyleBackColor = true;
@@ -114,7 +118,7 @@
             this.labelTipo.AutoSize = true;
             this.labelTipo.Location = new System.Drawing.Point(12, 65);
             this.labelTipo.Name = "labelTipo";
-            this.labelTipo.Size = new System.Drawing.Size(30, 15);
+            this.labelTipo.Size = new System.Drawing.Size(31, 15);
             this.labelTipo.TabIndex = 4;
             this.labelTipo.Text = "Tipo";
             // 
@@ -153,7 +157,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.Location = new System.Drawing.Point(400, 9);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(225, 30);
+            this.label2.Size = new System.Drawing.Size(226, 30);
             this.label2.TabIndex = 8;
             this.label2.Text = "Cadastro Responsável";
             // 
@@ -210,6 +214,7 @@
             this.maskedTextBoxCep.Name = "maskedTextBoxCep";
             this.maskedTextBoxCep.Size = new System.Drawing.Size(167, 29);
             this.maskedTextBoxCep.TabIndex = 17;
+            this.maskedTextBoxCep.Leave += new System.EventHandler(this.maskedTextBoxCep_Leave);
             // 
             // comboBoxCidade
             // 
@@ -265,6 +270,7 @@
             this.textBoxEndereco.Name = "textBoxEndereco";
             this.textBoxEndereco.Size = new System.Drawing.Size(410, 29);
             this.textBoxEndereco.TabIndex = 23;
+            this.textBoxEndereco.Leave += new System.EventHandler(this.textBoxEndereco_Leave);
             // 
             // textBoxNumero
             // 
@@ -305,7 +311,7 @@
             this.labelLocalTrabalho.AutoSize = true;
             this.labelLocalTrabalho.Location = new System.Drawing.Point(11, 255);
             this.labelLocalTrabalho.Name = "labelLocalTrabalho";
-            this.labelLocalTrabalho.Size = new System.Drawing.Size(99, 15);
+            this.labelLocalTrabalho.Size = new System.Drawing.Size(101, 15);
             this.labelLocalTrabalho.TabIndex = 28;
             this.labelLocalTrabalho.Text = "Local de Trabalho";
             // 
@@ -357,7 +363,7 @@
             this.labelTelefone.AutoSize = true;
             this.labelTelefone.Location = new System.Drawing.Point(11, 367);
             this.labelTelefone.Name = "labelTelefone";
-            this.labelTelefone.Size = new System.Drawing.Size(51, 15);
+            this.labelTelefone.Size = new System.Drawing.Size(53, 15);
             this.labelTelefone.TabIndex = 34;
             this.labelTelefone.Text = "Telefone";
             // 
@@ -425,18 +431,59 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(553, 329);
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnCodigo,
+            this.ColumnNomeCompleto,
+            this.ColumnCpf,
+            this.ColumnDataCadastro});
+            this.dataGridView1.Location = new System.Drawing.Point(451, 329);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(436, 291);
+            this.dataGridView1.Size = new System.Drawing.Size(538, 291);
             this.dataGridView1.TabIndex = 42;
+            // 
+            // ColumnCodigo
+            // 
+            this.ColumnCodigo.HeaderText = "Codigo";
+            this.ColumnCodigo.MinimumWidth = 200;
+            this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
+            this.ColumnCodigo.Visible = false;
+            this.ColumnCodigo.Width = 200;
+            // 
+            // ColumnNomeCompleto
+            // 
+            this.ColumnNomeCompleto.HeaderText = "Nome Completo";
+            this.ColumnNomeCompleto.MinimumWidth = 200;
+            this.ColumnNomeCompleto.Name = "ColumnNomeCompleto";
+            this.ColumnNomeCompleto.ReadOnly = true;
+            this.ColumnNomeCompleto.Width = 200;
+            // 
+            // ColumnCpf
+            // 
+            this.ColumnCpf.HeaderText = "CPF";
+            this.ColumnCpf.MinimumWidth = 150;
+            this.ColumnCpf.Name = "ColumnCpf";
+            this.ColumnCpf.ReadOnly = true;
+            this.ColumnCpf.Width = 150;
+            // 
+            // ColumnDataCadastro
+            // 
+            this.ColumnDataCadastro.HeaderText = "Data de Cadastro";
+            this.ColumnDataCadastro.MinimumWidth = 150;
+            this.ColumnDataCadastro.Name = "ColumnDataCadastro";
+            this.ColumnDataCadastro.ReadOnly = true;
+            this.ColumnDataCadastro.Width = 150;
             // 
             // ResponsavelForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(991, 632);
+            this.ClientSize = new System.Drawing.Size(991, 624);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.comboBoxNomePet);
             this.Controls.Add(this.labelNomePet);
@@ -526,5 +573,9 @@
         private Label labelNomePet;
         private ComboBox comboBoxNomePet;
         private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn ColumnCodigo;
+        private DataGridViewTextBoxColumn ColumnNomeCompleto;
+        private DataGridViewTextBoxColumn ColumnCpf;
+        private DataGridViewTextBoxColumn ColumnDataCadastro;
     }
 }
