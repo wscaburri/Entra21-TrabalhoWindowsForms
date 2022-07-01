@@ -1,13 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Entra21_TrabalhoWindowsForms
 {
@@ -25,17 +16,16 @@ namespace Entra21_TrabalhoWindowsForms
 
             PreecherDataGridViewComResponsaveis();
 
-            PreencherComboBoxComNomeAnimais();
+            //PreencherComboBoxComNomeAnimais();
 
             ObterDadosCep();
         }
 
-        private void PreencherComboBoxComNomeAnimais()
+        /*private void PreencherComboBoxComNomeAnimais()
         {
             var responsavel = animalServico.ObterTodos();
+        }*/
 
-
-        }
         private void LimparCampos()
         {
             var dataAtual = DateTime.Now;
@@ -53,8 +43,6 @@ namespace Entra21_TrabalhoWindowsForms
             maskedTextBoxCelular.Text = "";
             maskedTextBoxTelefone.Text = "";
             maskedTextBoxCpf.Text = "";
-
-
         }
 
         private void buttonEditar_Click(object sender, EventArgs e)
@@ -66,20 +54,17 @@ namespace Entra21_TrabalhoWindowsForms
         {
             if (dataGridView1.SelectedRows.Count == 0)
             {
-
                 MessageBox.Show("Selecione um responsável para editar");
 
                 return;
             }
 
-         
             var linhaSelecionada = dataGridView1.SelectedRows[0];
-           
+
             var codigo = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
-         
+
             var responsavel = responsavelServico.ObterPorCodigo(codigo);
 
-            
             maskedTextBoxCep.Text = responsavel.Cep;
             textBoxEndereco.Text = responsavel.Endereco;
             comboBoxNomePet.SelectedItem = responsavel.Pet.Nome;
@@ -105,8 +90,6 @@ namespace Entra21_TrabalhoWindowsForms
             var celular = maskedTextBoxCelular.Text;
             var email = textBoxEmail.Text;
 
-
-
             var dadosValidos = Resp.ValidarCpf(cpf);
             if (dadosValidos == false)
             {
@@ -118,16 +101,13 @@ namespace Entra21_TrabalhoWindowsForms
               cep, cidade, bairro, endereco,
               numeroResidencia, complemento,
               localDeTrabalho, telefone, celular, email, nomePet);
-            
             else
                 EditarResponsavel(nomeCompleto, tipo, cpf, dataNascimento,
              cep, cidade, bairro, endereco,
              numeroResidencia, complemento,
              localDeTrabalho, telefone, celular, email, nomePet);
-
-
-
         }
+
         private void EditarResponsavel(string nomeCompleto, string tipo, string cpf, string dataNascimento,
             string cep, string cidade, string bairro, string endereco,
             string numeroResidencia, string complemento,
@@ -136,11 +116,10 @@ namespace Entra21_TrabalhoWindowsForms
             var linhaSelecionada = dataGridView1.SelectedRows[0];
             var codigoSelecionado = Convert.ToInt32(linhaSelecionada.Cells[0].Value);
 
-           
             var responsavel = new Responsavel();
             responsavel.Codigo = codigoSelecionado;
             responsavel.NomeCompleto = nomeCompleto;
-            responsavel.DataNascimento = Convert.ToDateTime(dataNascimento); 
+            responsavel.DataNascimento = Convert.ToDateTime(dataNascimento);
             responsavel.Tipo = tipo;
             responsavel.Cpf = cpf;
             responsavel.Cep = cep;
@@ -155,9 +134,9 @@ namespace Entra21_TrabalhoWindowsForms
             responsavel.Email = email;
             responsavel.Pet = animalServico.ObterPorNomeAnimal(nomeAnimal);
 
-          
             responsavelServico.Editar(responsavel);
         }
+
         private void PreecherDataGridViewComResponsaveis()
         {
             var resposanveis = responsavelServico.ObterTodos();
@@ -174,9 +153,7 @@ namespace Entra21_TrabalhoWindowsForms
                     responsavel.NomeCompleto,
                     responsavel.Cpf,
                     responsavel.DataNascimento,
-
                 });
-
             }
             dataGridView1.Rows.Clear();
         }
@@ -206,8 +183,8 @@ namespace Entra21_TrabalhoWindowsForms
             responsavel.Pet = animalServico.ObterPorNomeAnimal(nomeAnimal);
 
             responsavelServico.Adicionar(responsavel);
-
         }
+
         private void ObterDadosCep()
         {
             var cep = maskedTextBoxCep.Text.Replace("-", "").Trim();
@@ -223,7 +200,6 @@ namespace Entra21_TrabalhoWindowsForms
 
             if (resultado.StatusCode == System.Net.HttpStatusCode.OK)
             {
-               
                 var resposta = resultado.Content.ReadAsStringAsync().Result;
 
                 var dadosResponsavel = JsonConvert.DeserializeObject<ResponsavelDadosRequisicao>(resposta);
@@ -232,7 +208,6 @@ namespace Entra21_TrabalhoWindowsForms
                 textBoxEndereco.Text = $" - {dadosResponsavel.Logradouro}";
                 comboBoxCidade.Text = $"{dadosResponsavel.Localidade}";
                 textBoxBairro.Text = $"{dadosResponsavel.Bairro}";
-
             }
         }
 
@@ -240,19 +215,20 @@ namespace Entra21_TrabalhoWindowsForms
         {
             ObterDadosCep();
         }
+
         private void textBoxEndereco_Leave(object sender, EventArgs e)
         {
             ObterDadosCep();
         }
+
         public bool ValidarDados(string nomeCompleto, string cpf,
             string cep, string cidade, string bairro, string enderecoCompleto,
             string numeroResidencia, string localDeTrabalho, string telefone, string celular)
         {
-         
             if (Resp.ValidarCpf(cpf) == false)
             {
                 MessageBox.Show("CPF inválido");
-                
+
                 maskedTextBoxCpf.Focus();
                 return false;
             }
@@ -282,9 +258,8 @@ namespace Entra21_TrabalhoWindowsForms
             if (comboBoxTipo.SelectedIndex == -1)
             {
                 MessageBox.Show("Escolha o tipo de pessoa");
-                
-                comboBoxTipo.DroppedDown = true;
 
+                comboBoxTipo.DroppedDown = true;
             }
             if (comboBoxCidade.SelectedIndex == -1)
             {
@@ -294,7 +269,7 @@ namespace Entra21_TrabalhoWindowsForms
 
                 return false;
             }
-            
+
             if (comboBoxNomePet.SelectedIndex == -1)
             {
                 MessageBox.Show("Escolha um animal");
@@ -302,13 +277,13 @@ namespace Entra21_TrabalhoWindowsForms
                 comboBoxNomePet.DroppedDown = true;
 
                 return false;
-           }
+            }
             var dataAtual = DateTime.Now;
-            if (dateTimePickerDataNascimento.Value == dataAtual )
+            if (dateTimePickerDataNascimento.Value == dataAtual)
             {
                 MessageBox.Show("Preencha a data de nascimento");
             }
-          
+
             return true;
         }
 

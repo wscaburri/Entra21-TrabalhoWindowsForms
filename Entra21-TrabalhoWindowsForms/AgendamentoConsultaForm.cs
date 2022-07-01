@@ -48,7 +48,7 @@
             for (var i = 0; i < veterinarios.Count; i++)
             {
                 var veterinario = veterinarios[i];
-                comboBoxResponsavel.Items.Add(veterinario.Nome);
+                comboBoxVeterinario.Items.Add(veterinario.Nome);
             }
         }
 
