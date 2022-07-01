@@ -5,7 +5,7 @@
         public int Codigo;
         public DateTime DataConsulta;
         public DateTime HoraConsulta;
-        public Responsavel nomeResponsavel;
-        public Animal nomePet;
+        public Responsavel NomeResponsavel;
+        public Animal NomePet;
     }
 }
