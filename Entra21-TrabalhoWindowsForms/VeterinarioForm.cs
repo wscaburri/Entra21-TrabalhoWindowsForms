@@ -95,7 +95,7 @@
                 return false;
             }
 
-            if (cpf.Length != 11)
+            if (cpf.Length != 14)
             {
                 MessageBox.Show("CPF Inválido.");
 
@@ -183,6 +183,11 @@
             PreencherDataGridViewComVeterinarios();
 
             dataGridViewVeterinarios.ClearSelection();
+        }
+
+        private void dataGridViewVeterinarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            PreencherDataGridViewComVeterinarios();
         }
     }
 }

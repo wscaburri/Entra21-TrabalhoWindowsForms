@@ -30,7 +30,7 @@ namespace Entra21_TrabalhoWindowsForms
                 {
                     veterinario.Nome = veterinarioParaEditar.Nome;
                     veterinario.Cpf = veterinarioParaEditar.Cpf;
-                    veterinario.DataAdmissao = veterinario.DataAdmissao;
+                    veterinario.DataAdmissao = veterinarioParaEditar.DataAdmissao;
 
                     SalvarArquivo();
 

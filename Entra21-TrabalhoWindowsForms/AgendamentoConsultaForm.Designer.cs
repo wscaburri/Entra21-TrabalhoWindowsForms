@@ -74,6 +74,7 @@
             this.ColumnCodigo.HeaderText = "Código";
             this.ColumnCodigo.MinimumWidth = 6;
             this.ColumnCodigo.Name = "ColumnCodigo";
+            this.ColumnCodigo.ReadOnly = true;
             this.ColumnCodigo.Width = 125;
             // 
             // ColumnNomeResponsavel
@@ -81,6 +82,7 @@
             this.ColumnNomeResponsavel.HeaderText = "Nome do Responsável";
             this.ColumnNomeResponsavel.MinimumWidth = 6;
             this.ColumnNomeResponsavel.Name = "ColumnNomeResponsavel";
+            this.ColumnNomeResponsavel.ReadOnly = true;
             this.ColumnNomeResponsavel.Width = 125;
             // 
             // ColumnNomePet
@@ -88,6 +90,7 @@
             this.ColumnNomePet.HeaderText = "Nome do Pet";
             this.ColumnNomePet.MinimumWidth = 6;
             this.ColumnNomePet.Name = "ColumnNomePet";
+            this.ColumnNomePet.ReadOnly = true;
             this.ColumnNomePet.Width = 125;
             // 
             // ColumnData
@@ -95,6 +98,7 @@
             this.ColumnData.HeaderText = "Data";
             this.ColumnData.MinimumWidth = 6;
             this.ColumnData.Name = "ColumnData";
+            this.ColumnData.ReadOnly = true;
             this.ColumnData.Width = 125;
             // 
             // ColumnHora
@@ -102,6 +106,7 @@
             this.ColumnHora.HeaderText = "Hora";
             this.ColumnHora.MinimumWidth = 6;
             this.ColumnHora.Name = "ColumnHora";
+            this.ColumnHora.ReadOnly = true;
             this.ColumnHora.Width = 125;
             // 
             // dateTimePickerDataConsulta

@@ -231,6 +231,15 @@
                 return false;
             }
 
+            if (dataCadastro > DateTime.Now)
+            {
+                MessageBox.Show("Data de cadastro não pode ser maior do que a atual");
+
+                dateTimePickerDataCadastro.Focus();
+
+                return false;
+            }
+
             return true;
         }
 

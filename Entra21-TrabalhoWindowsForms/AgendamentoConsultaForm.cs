@@ -7,5 +7,10 @@
         {
             InitializeComponent();
         }
+
+        private void dataGridViewAgendamentoConsulta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
